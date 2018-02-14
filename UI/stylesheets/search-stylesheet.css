@@ -1,0 +1,108 @@
+#header,
+#footer {
+    width: 100%;
+    background-color: #BA0C2F;
+    height: 115px;
+}
+
+html {
+    background-color: #FFFFFF;
+    text-align: center;
+    font-family: "Trebuchet MS";
+    font-size: 19px;
+}
+
+html body {
+    margin: 0;
+}
+
+#header {
+    width: 100%;
+    color: #FFFFFF;
+}
+
+#header #search {
+    float: right;
+    padding-right: 35px;
+}
+
+#header input[type="text"] {
+    height: 25px;
+    width: 350px;
+}
+
+#body {
+    margin-top: 50px;
+    height: 300px;
+}
+
+#body table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#body table td {
+    border: solid 2px black;
+    background-color: lightskyblue;
+    height: 20px;
+}
+
+#body table th {
+    background-color: grey;
+    border: solid 2px black;
+}
+
+#footer {
+    margin-top: 20px;
+}
+
+#footer button {
+    background-color: #BA0C2F;
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 45px;
+    width: 250px;
+    color: #FFFFFF;
+}
+
+#search-input {
+    height: 42px;
+    width: 45%;
+    font-size: 19px;
+    border-radius: 4px;
+    border: solid 1px grey;
+    box-shadow: 0 5px 30px rgba(156, 160, 171, 0.25);
+}
+
+#add-new-student {
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 5px 30px rgba(156, 160, 171, 0.25);
+    background-color: #BA0C2F;
+    color: #FFFFFF;
+    height: 35px;
+    position: relative;
+    left: -130px;
+    top: -2px;
+    
+}
+#add-new-student:hover{
+    cursor: pointer;
+}
+
+#search{
+    margin-top: 20px;
+}
+
+#delete-student{
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 5px 30px rgba(156, 160, 171, 0.25);
+    background-color: #BA0C2F;
+    color: #FFFFFF;
+    height: 35px;
+}
+
+#delete-student:hover{
+    cursor: pointer;
+}

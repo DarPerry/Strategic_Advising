@@ -1,0 +1,35 @@
+html {
+  background-color: #54585A;
+  text-align: center; }
+  html body {
+    margin: 0; }
+
+#container table {
+  margin: 0 auto;
+  border-collapse: collapse; }
+  #container table td {
+    border: solid 2px black;
+    background-color: lightskyblue;
+    height: 20px;
+    width: 350px; }
+  #container table th {
+    background-color: grey;
+    border: solid 2px black; }
+
+#header {
+  height: 100px;
+  width: 100%; }
+
+#footer {
+  margin: 0 auto; }
+  #footer button {
+    text-align: center;
+    background-color: #BA0C2F;
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 45px;
+    width: 250px;
+    color: #FFFFFF;
+    margin: 20px; }
+
+/*# sourceMappingURL=output-stylesheet.css.map */

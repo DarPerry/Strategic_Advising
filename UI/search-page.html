@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../UI/stylesheets/search-stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        function searchForFile(str) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtHint").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "fileSearch.php?email=" + str, true);
+            xmlhttp.send();
+        }
+
+        $(document).ready(function() {
+
+            $('#add-new-student').click(function() {
+                if ($('#search-input').val() !== '') { //check name field have some value
+                    $.post('addNewStudent.php', {
+                        'email': $('#search-input').val()
+                    }, function(data) { //send value to post request in ajax to the php page
+                        $('#txtHint').html(data); //print the response coming from php page 
+                    });
+                }
+            });
+
+            $("#delete-student").click(function() {
+                if ($('#search-input').val() !== '') {
+                    $.post('deleteStudent.php', {
+                            'email': $("#search-input").val()
+                        },
+                        function(data) {
+                            $("#txtHint").html(data);
+                        });
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <form>
+        <div id="body">
+
+            <div id="search">
+                Search Student: <input id="search-input" type="text" onkeyup="searchForFile(this.value)">
+                <button type="button" id="add-new-student">Add New Student</button>
+                <br><br>Message: <span id="txtHint">
+    </form>
+    </div>
+
+    </div>
+    <button id="delete-student">Delete Student</button>
+    <button>View/Modify Student Schedule</button>
+    <div id="footer"></div>
+</body>
+
+</html>
