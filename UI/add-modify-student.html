@@ -7,23 +7,54 @@
     <meta charset="utf-8" />
 
     <script>
+        function GetCheckboxValue(checkbox) {
+            if ($(checkbox).is(':checked')) {
+                return "true";
+            } else {
+                return "false";
+            }
+        }
+
         $(document).ready(function() {
             //Fix Method
             $("#submit-button").click(function() {
 
+                var courses_taken = new Array();
+                var tr_count = $('.row');
+                var summer_classes_bool;
+                var honors_college_bool;
+                var early_graduation_bool;
 
+                tr_count.each(function() {
+                    courses_taken.push($(this).text());
+                });
 
-                window.alert($("#student-name").val() + " " + $("#id-number").val() + " " + $("#expected-graduation").val() + " " + $(".major:checked").val() + " " + $(".concentration:checked").val());
-                //// var config = require('./test.json');
-                //                console.log(config.table[0].id);
-                var config = require('./test.json');
-
-
+                courses_taken.shift();
+                
+                var student =
+                    '{"student_name": "' + $("#student-name").val() +
+                    '", "id_number" : ' + $("#id-number").val() +
+                    ', "expected_graduation": "' + $("#expected-graduation").val() +
+                    '", "major": "' + $(".major:checked").val() +
+                    '", "concentration": "' + $(".concentration:checked").val() +
+                    '", "courses_taken": [' + courses_taken.toString() +
+                    '],  "summer_classes": "' + GetCheckboxValue($('#summer-classes')) +
+                    '", "early_graduation": "' + GetCheckboxValue($('#early-graduation')) +
+                    '", "honors_college": "' + GetCheckboxValue($('#honors-student')) +
+                    '", "min_credits": ' + $("#min-credits").val() +
+                    ', "max_credits":  ' + $('#max-credits').val() + "}";
+                
+                // ----- CHANGE ----- //
+                // - Should send to -//
+                // - php file, not -//
+                // - alert.        - //
+                window.alert(student); 
+                // ----- CHANGE ----- // 
 
             });
 
             $("#add-button").click(function() {
-                $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td><td>Filler</td></tr>");
+                $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val());
             });
 
             $("#delete-button").click(function() {
@@ -98,19 +129,19 @@
         <br>
         <div id="criteria-input">
             <div id=checkboxes>
-                <input type="checkbox" value="summer-school">Summer Classes
-                <input type="checkbox" value="early-grad">Early Graduation
-                <input type="checkbox" value="honors-student">Honors Student
+                <input type="checkbox" name="criteria" value="summer-school" id="summer-classes">Summer Classes
+                <input type="checkbox" name="criteria" value="early-grad" id="early-graduation">Early Graduation
+                <input type="checkbox" name="criteria" value="honors-student" id="honors-student">Honors Student
             </div>
 
             <div class="credit-range">
-                Maximum Credits/Semester
+                Minimum Credits/Semester
                 <br>
-                <input type="number" class="tiny-number-input">
-                <br> Minimum Credits/Semester
+                <input type="number" class="tiny-number-input" id="min-credits">
+                <br> Maximum Credits/Semester
                 <br>
                 <!--make range slide -->
-                <input type="number" class="tiny-number-input">
+                <input type="number" class="tiny-number-input" id="max-credits">
             </div>
         </div>
 
