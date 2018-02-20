@@ -1,0 +1,3 @@
+ *-DJP-* Fix issue with searching student and modify student pages/feature being seperated
+ 
+ *-DJP-* Full student emails being added instead of subsrtring of it

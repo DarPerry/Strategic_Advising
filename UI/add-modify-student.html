@@ -26,13 +26,15 @@
                 var early_graduation_bool;
 
                 tr_count.each(function() {
-                    courses_taken.push($(this).text());
+                    courses_taken.push('"' + $(this).text() + '"');
                 });
 
                 courses_taken.shift();
-                
+                courses_taken.sort();
+
                 var student =
                     '{"student_name": "' + $("#student-name").val() +
+                    '", "student_email": "' + $("#student-email").val() +
                     '", "id_number" : ' + $("#id-number").val() +
                     ', "expected_graduation": "' + $("#expected-graduation").val() +
                     '", "major": "' + $(".major:checked").val() +
@@ -44,13 +46,13 @@
                     '", "min_credits": ' + $("#min-credits").val() +
                     ', "max_credits":  ' + $('#max-credits').val() + "}";
                 
-                // ----- CHANGE ----- //
-                // - Should send to -//
-                // - php file, not -//
-                // - alert.        - //
-                window.alert(student); 
-                // ----- CHANGE ----- // 
-
+                 $.post('modifyStudent.php', {
+                     student_info: student, student_email: $("#student-email").val()
+                        },
+                        function(data) {
+                            window.alert(data);
+                        });
+                
             });
 
             $("#add-button").click(function() {
@@ -79,6 +81,8 @@
         <div id="student-info-input">
             Student Name:
             <input type=text id="student-name">
+            <br> Student Email:
+            <input type=text id="student-email">
             <br> Ball State ID Number:
             <input type=text id="id-number">
             <br> Expexted Graduation:
