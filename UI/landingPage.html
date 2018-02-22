@@ -2,19 +2,22 @@
 <html>
 
 <head>
+    <title>Strategic Advising</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../ui/stylesheets/landing-stylesheet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {            
+        $(document).ready(function() {
             $("#add-student").click(function() {
                 window.location.href = "add-modify-student.html";
             });
-            
+
             $("#search-student").click(function() {
                 window.location.href = "search-page.html";
             });
-            
+
         });
+
     </script>
 </head>
 
@@ -24,9 +27,9 @@
     </div>
 
     <div id="jumbotron">
-        <button id="add-student">Add Student</button>
+        <button id="add-student">Add New Student</button>
         <img id="ball-state-logo" src="images/ball-state-logo.png">
-        <button id="search-student">Search Student</button>
+        <button id="search-student">Search For Existing Student</button>
     </div>
 
     <div id="footer"></div>

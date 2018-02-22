@@ -2,7 +2,8 @@
 #footer {
   width: 100%;
   background-color: #BA0C2F;
-  height: 50px; }
+  height: 50px;
+}
 
 html {
   font-family: "Trebuchet MS";
@@ -19,7 +20,6 @@ div {
 
 #left {
   width: 35%;
-  height: 425px;
   margin-top: 20px;
   margin-left: 50px; }
   #left #student-info-input {

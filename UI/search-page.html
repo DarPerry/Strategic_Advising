@@ -2,10 +2,13 @@
 <html>
 
 <head>
+    <title>Strategic Advising</title>
     <link rel="stylesheet" type="text/css" href="../UI/stylesheets/search-stylesheet.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
+        //change to use jQuery
         function searchForFile(str) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
@@ -39,6 +42,18 @@
                         });
                 }
             });
+
+            //*****//
+            $("#view-modify-student").click(function() {
+                $.ajax({
+                    url: "../students/" + $('#search-input').val() + ".sa",
+                    success: function(data) {
+                        sessionStorage.setItem("studentInformation", data);
+                        window.location.href = "add-modify-student.html";
+                    }
+                });
+            });
+
         });
 
     </script>
@@ -58,7 +73,7 @@
 
     </div>
     <button id="delete-student">Delete Student</button>
-    <button>View/Modify Student Schedule</button>
+    <button id="view-modify-student">View/Modify Student Schedule</button>
     <div id="footer"></div>
 </body>
 

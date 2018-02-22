@@ -2,7 +2,9 @@
 <html>
 
 <head>
+    <title>Strategic Advising</title>
     <link type="text/css" rel="stylesheet" href="stylesheets/add-modify-stylesheet.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta charset="utf-8" />
 
@@ -45,14 +47,15 @@
                     '", "honors_college": "' + GetCheckboxValue($('#honors-student')) +
                     '", "min_credits": ' + $("#min-credits").val() +
                     ', "max_credits":  ' + $('#max-credits').val() + "}";
-                
-                 $.post('modifyStudent.php', {
-                     student_info: student, student_email: $("#student-email").val()
-                        },
-                        function(data) {
-                            window.alert(data);
-                        });
-                
+
+                $.post('modifyStudent.php', {
+                        student_info: student,
+                        student_email: $("#student-email").val()
+                    },
+                    function(data) {
+                        window.alert(data);
+                    });
+
             });
 
             $("#add-button").click(function() {
@@ -67,6 +70,10 @@
                     }
                 });
             });
+            
+            $("#show").click(function(){
+                window.alert(sessionStorage.getItem("studentInformation"));
+            })
 
 
         });
@@ -162,11 +169,14 @@
                 <button id="add-button">Add</button>
                 <br>
                 <button id="delete-button">Delete</button>
+                
+                  <br>
+                <button id="show">Show Data</button>
             </div>
 
         </div>
     </div>
-    <div id="header"></div>
+    <div id="footer"></div>
 </body>
 
 </html>

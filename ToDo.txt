@@ -1,3 +1,9 @@
- *-DJP-* Fix issue with searching student and modify student pages/feature being seperated
+*-DJP-* Fix issue with searching student and modify student pages/feature being seperated
  
- *-DJP-* Full student emails being added instead of subsrtring of it
+*-DJP-* Have search page lead to view modify or put search on landing page
+  
+*-DJP-* Ask for override if file already exist
+  
+*-DJP-* Scrollable Course Taken Table
+
+*-DJP-* Drop Down/Checklist for putting in classes
