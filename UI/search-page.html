@@ -21,6 +21,8 @@
         }
 
         $(document).ready(function() {
+            document.getElementById("form").reset();
+
 
             $('#add-new-student').click(function() {
                 if ($('#search-input').val() !== '') { //check name field have some value
@@ -63,7 +65,7 @@
 
 <body>
     <div id="header"></div>
-    <form>
+    <form id="form">
         <div id="body">
 
             <div id="search">

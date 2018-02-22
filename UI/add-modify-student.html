@@ -18,7 +18,7 @@
         }
 
         $(document).ready(function() {
-            window.alert("New Student Mode" + sessionStorage.getItem("newStudentMode"));
+            document.getElementById("form").reset();
             //window.alert(sessionStorage.getItem("studentInformation"));
 
             if (sessionStorage.getItem("newStudentMode") == 'false') {
@@ -30,11 +30,29 @@
                 $("#expected-graduation").val(studentObject.expected_graduation);
 
                 $("input[name='major'][value='" + studentObject.major + "']").prop('checked', true);
-
                 if (studentObject.concentration !== "undefined") {
-                    $("input[name='concentration'][value='" + studentObject.concentration + "']").prop('checked', true);
-
+                    $("input[name='conc'][value='" + studentObject.concentration + "']").prop('checked', true);
                 }
+
+                ///////////////////////////
+                //***TODO Add Course Taken/
+                ///////////////////////////
+                window.alert(GetCheckboxValue("#early-graduation"));
+                if (studentObject.summer_classes == "true") {
+                    $("#summer-classes").prop('checked', true);
+                }
+                if (studentObject.early_graduation == "true") {
+                    $("#early-graduation").prop('checked', true);
+                }
+                if (studentObject.honors_college == "true") {
+                    $("#honors-student").prop('checked', true);
+                }
+
+                $("#min-credits").val(studentObject.min_credits);
+                $("#max-credits").val(studentObject.max_credits);
+
+
+
             }
 
             //Fix Method
@@ -75,10 +93,12 @@
                         window.alert(data);
                     });
                 sessionStorage.setItem("newStudentMode", "true");
+                return false;
             });
 
             $("#add-button").click(function() {
                 $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val());
+                return false;
             });
 
             $("#delete-button").click(function() {
@@ -88,6 +108,11 @@
                         this.remove();
                     }
                 });
+                return false;
+            });
+
+            $("#search").click(function() {
+                window.location.href = "search-page.html";
             });
 
 
@@ -98,40 +123,41 @@
 </head>
 
 <body>
-    
-    <div id="header"></div>
-    <div id="left">
-        <div id="student-info-input">
-            Student Name:
-            <input type=text id="student-name">
-            <br> Student Email:
-            <input type=text id="student-email">
-            <br> Ball State ID Number:
-            <input type=text id="id-number">
-            <br> Expexted Graduation:
-            <input type=text id="expected-graduation">
-        </div>
 
-        <div id="major-checkboxes">
-            Major
-            <br>
-            <input type="radio" name="major" class="major" value="Actuarial Mathematics"> Actuarial Mathematics
-            <br>
-            <input type="radio" name="major" class="major" value="Mathematical Science"> Mathematical Science
-            <br>
-            <input type="radio" name="conc" class="concentration" value="Math"> Math
-            <br>
-            <input type="radio" name="conc" class="concentration" value="Applied Science"> Applied Science
-            <br>
-            <input type="radio" name="major" class="major" value="Mathematics Teaching"> Mathematics Teaching
-            <br>
-            <input type="radio" name="conc" class="concentration" value="Middle School"> Middle School
-            <br>
-            <input type="radio" name="conc" class="concentration" value="Secondary School"> Secondary School
-            <br>
-            <input type="radio" name="major" class="major" value="Computer Science"> Computer Science
-        </div>
-        <button id="submit-button">Submit</button>
+    <div id="header"><span id="search">Search Student</span></div>
+    <div id="left">
+        <form id="form">
+            <div id="student-info-input">
+                Student Name:
+                <input type=text id="student-name">
+                <br> Student Email:
+                <input type=text id="student-email">
+                <br> Ball State ID Number:
+                <input type=text id="id-number">
+                <br> Expeted Graduation:
+                <input type=text id="expected-graduation">
+            </div>
+
+            <div id="major-checkboxes">
+                Major
+                <br>
+                <input type="radio" name="major" class="major" value="Actuarial Mathematics"> Actuarial Mathematics
+                <br>
+                <input type="radio" name="major" class="major" value="Mathematical Science"> Mathematical Science
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Math"> Math
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Applied Science"> Applied Science
+                <br>
+                <input type="radio" name="major" class="major" value="Mathematics Teaching"> Mathematics Teaching
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Middle School"> Middle School
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Secondary School"> Secondary School
+                <br>
+                <input type="radio" name="major" class="major" value="Computer Science"> Computer Science
+            </div>
+            <button id="submit-button">Submit</button>
 
     </div>
     <div id="right">
@@ -191,6 +217,7 @@
             </div>
 
         </div>
+        </form>
     </div>
     <div id="footer"></div>
 </body>
