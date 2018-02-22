@@ -18,6 +18,25 @@
         }
 
         $(document).ready(function() {
+            window.alert("New Student Mode" + sessionStorage.getItem("newStudentMode"));
+            //window.alert(sessionStorage.getItem("studentInformation"));
+
+            if (sessionStorage.getItem("newStudentMode") == 'false') {
+                var sessionStudentInformation = sessionStorage.getItem("studentInformation");
+                var studentObject = JSON.parse(sessionStudentInformation);
+                $("#student-name").val(studentObject.student_name);
+                $("#student-email").val(studentObject.student_email);
+                $("#id-number").val(studentObject.id_number);
+                $("#expected-graduation").val(studentObject.expected_graduation);
+
+                $("input[name='major'][value='" + studentObject.major + "']").prop('checked', true);
+
+                if (studentObject.concentration !== "undefined") {
+                    $("input[name='concentration'][value='" + studentObject.concentration + "']").prop('checked', true);
+
+                }
+            }
+
             //Fix Method
             $("#submit-button").click(function() {
 
@@ -55,7 +74,7 @@
                     function(data) {
                         window.alert(data);
                     });
-
+                sessionStorage.setItem("newStudentMode", "true");
             });
 
             $("#add-button").click(function() {
@@ -70,10 +89,6 @@
                     }
                 });
             });
-            
-            $("#show").click(function(){
-                window.alert(sessionStorage.getItem("studentInformation"));
-            })
 
 
         });
@@ -83,6 +98,7 @@
 </head>
 
 <body>
+    
     <div id="header"></div>
     <div id="left">
         <div id="student-info-input">
@@ -148,11 +164,11 @@
             <div class="credit-range">
                 Minimum Credits/Semester
                 <br>
-                <input type="number" class="tiny-number-input" id="min-credits">
+                <input type="number" class="tiny-number-input" id="min-credits" value=12>
                 <br> Maximum Credits/Semester
                 <br>
                 <!--make range slide -->
-                <input type="number" class="tiny-number-input" id="max-credits">
+                <input type="number" class="tiny-number-input" id="max-credits" value=18>
             </div>
         </div>
 
@@ -169,8 +185,8 @@
                 <button id="add-button">Add</button>
                 <br>
                 <button id="delete-button">Delete</button>
-                
-                  <br>
+
+                <br>
                 <button id="show">Show Data</button>
             </div>
 

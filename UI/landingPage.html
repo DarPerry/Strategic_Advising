@@ -9,10 +9,12 @@
     <script>
         $(document).ready(function() {
             $("#add-student").click(function() {
+                sessionStorage.setItem
                 window.location.href = "add-modify-student.html";
             });
 
             $("#search-student").click(function() {
+                sessionStorage.setItem("newStudentMode", "true");
                 window.location.href = "search-page.html";
             });
 

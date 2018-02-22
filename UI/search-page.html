@@ -45,13 +45,15 @@
 
             //*****//
             $("#view-modify-student").click(function() {
+                sessionStorage.setItem("newStudentMode", "false");
                 $.ajax({
                     url: "../students/" + $('#search-input').val() + ".sa",
                     success: function(data) {
                         sessionStorage.setItem("studentInformation", data);
-                        window.location.href = "add-modify-student.html";
                     }
                 });
+                window.location.href = "add-modify-student.html";
+
             });
 
         });
