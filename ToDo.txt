@@ -13,3 +13,7 @@
 *-DJP-* Do Student Information Sort of like credit car (student info heading, placeholders in in puts)
 
 *-DJP-* Need own back/redirect feature
+
+*-DJP-* Search by Id or email
+
+Excel thing

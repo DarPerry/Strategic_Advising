@@ -96,4 +96,17 @@ table {
       border-radius: 5px;
       margin: 5px; }
 
+.tab {
+      color: #FFFFFF;
+    position: relative;
+    top: 8px;
+    left: 20px;
+    border-radius: 2px;
+    padding: 4px
+}
+
+.tab:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .1);
+}
 /*# sourceMappingURL=add-modify-stylesheet.css.map */

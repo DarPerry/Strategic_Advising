@@ -74,7 +74,8 @@ html body {
     box-shadow: 0 5px 30px rgba(156, 160, 171, 0.25);
 }
 
-#add-new-student {
+#add-new-student
+    {
     border-radius: 4px;
     border: none;
     box-shadow: 0 5px 30px rgba(156, 160, 171, 0.25);
@@ -84,17 +85,10 @@ html body {
     position: relative;
     left: -130px;
     top: -2px;
-    
-}
-#add-new-student:hover{
-    cursor: pointer;
+
 }
 
-#search{
-    margin-top: 20px;
-}
-
-#delete-student{
+#view-modify-student {
     border-radius: 4px;
     border: none;
     box-shadow: 0 5px 30px rgba(156, 160, 171, 0.25);
@@ -103,6 +97,29 @@ html body {
     height: 35px;
 }
 
-#delete-student:hover{
+#view-modify-student:hover {
     cursor: pointer;
 }
+
+#add-new-student:hover {
+    cursor: pointer;
+}
+
+#search {
+    margin-top: 20px;
+}
+
+#delete-student {
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 5px 30px rgba(156, 160, 171, 0.25);
+    background-color: #BA0C2F;
+    color: #FFFFFF;
+    height: 35px;
+}
+
+#delete-student:hover {
+    cursor: pointer;
+}
+
+

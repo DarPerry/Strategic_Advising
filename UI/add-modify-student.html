@@ -19,7 +19,14 @@
 
         $(document).ready(function() {
             document.getElementById("form").reset();
-            //window.alert(sessionStorage.getItem("studentInformation"));
+            //            window.alert(sessionStorage.getItem("studentInformation"));
+//            window.alert("New Student Mode: " + sessionStorage.getItem("newStudentMode"));
+
+
+
+            $("#generateButton").click(function() {
+                alert("Generate");
+            });
 
             if (sessionStorage.getItem("newStudentMode") == 'false') {
                 var sessionStudentInformation = sessionStorage.getItem("studentInformation");
@@ -34,10 +41,7 @@
                     $("input[name='conc'][value='" + studentObject.concentration + "']").prop('checked', true);
                 }
 
-                ///////////////////////////
-                //***TODO Add Course Taken/
-                ///////////////////////////
-                window.alert(GetCheckboxValue("#early-graduation"));
+                //                window.alert(GetCheckboxValue("#early-graduation"));
                 if (studentObject.summer_classes == "true") {
                     $("#summer-classes").prop('checked', true);
                 }
@@ -51,7 +55,14 @@
                 $("#min-credits").val(studentObject.min_credits);
                 $("#max-credits").val(studentObject.max_credits);
 
+                studentObject.courses_taken.forEach(function(course) {
+                    var splitCourseInfo = course.split("_");
+                    var courseInfoRow = "<tr class='row'><td id='cname'>" + splitCourseInfo[0].toUpperCase() + "</td><td id='cnum'>" + splitCourseInfo[1].toUpperCase() + "</td></tr>";
+                    $('.row').last().after(courseInfoRow);
 
+                });
+            } else if (sessionStorage.getItem("newStudentMode") == 'true') {
+                $("#student-email").val(sessionStorage.getItem("newStudentEmail")+"@bsu.edu")
 
             }
 
@@ -63,9 +74,11 @@
                 var summer_classes_bool;
                 var honors_college_bool;
                 var early_graduation_bool;
+                var course = "";
 
                 tr_count.each(function() {
-                    courses_taken.push('"' + $(this).text() + '"');
+                    course = $(this).find("#cname").text() + "_" + $(this).find("#cnum").text();
+                    courses_taken.push('"' + course + '"');
                 });
 
                 courses_taken.shift();
@@ -97,7 +110,8 @@
             });
 
             $("#add-button").click(function() {
-                $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val());
+                $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td></tr>");
+                //TODO add end of row
                 return false;
             });
 
@@ -111,7 +125,7 @@
                 return false;
             });
 
-            $("#search").click(function() {
+            $(".tab").click(function() {
                 window.location.href = "search-page.html";
             });
 
@@ -124,7 +138,7 @@
 
 <body>
 
-    <div id="header"><span id="search">Search Student</span></div>
+    <div id="header"><div class="tab">Search Student</div></div>
     <div id="left">
         <form id="form">
             <div id="student-info-input">
@@ -215,6 +229,9 @@
                 <br>
                 <button id="show">Show Data</button>
             </div>
+            <br>
+            <br>
+            <button id=generateButton>Generate Schedule</button>
 
         </div>
         </form>

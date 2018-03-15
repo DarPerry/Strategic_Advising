@@ -1,1 +1,0 @@
-{"student_name": "Testy Tim", "student_email": "test@bsu.edu", "id_number" : 90090009, "expected_graduation": "Never", "major": "Mathematical Science", "concentration": "Math", "courses_taken": ["HIST150"],  "summer_classes": "true", "early_graduation": "false", "honors_college": "true", "min_credits": 15, "max_credits":  15}
