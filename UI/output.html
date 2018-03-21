@@ -2,11 +2,35 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/output-stylesheet.css">
-        <link rel="shortcut icon" href="images/favicon.ico">
-       <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+    <link type="text/css" rel="stylesheet" href="stylesheets/output-stylesheet.css">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="UTF-8">
 
     <title>Strategic Advising</title>
+    <script>
+        $(document).ready(function() {
+
+            $("tbody").on('mousedown', 'tr', function() {
+                $(this).attr("id", "draggable");
+                $("#draggable").draggable();
+
+
+            });
+
+
+            $("tbody").droppable({
+                drop: function(event, ui) {
+                    $(this).append("<tr>" + $("#draggable").html() + "</tr>")
+                    $("#draggable").remove();
+                }
+            })
+        });
+
+    </script>
 
 
 </head>
@@ -15,64 +39,79 @@
 
     <div id="header"></div>
     <div id="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>Course</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
+        <div class="yearPlan" id="year1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS120</td>
+                        <td>Computer Science 1</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>CS397</td>
+                        <td>Multitier Web Arch.</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS345</td>
+                        <td>Human Cimputer Interacion</td>
+                        <td>3</td>
+                    </tr>
 
-        </table>
 
+
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS121</td>
+                        <td>Computer Science 2</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>CS222</td>
+                        <td>Advanced Programming</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS498</td>
+                        <td>Software Engineerin 2</td>
+                        <td>3</td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+        </div>
+        <div class="yearPlan"></div>
+        <div class="yearPlan"></div>
+        <div class="yearPlan"></div>
     </div>
     <div id="footer">
-        <button>Delete Course</button>
-        <button>Add Course</button>
-        <button>View Course Details</button>
+
     </div>
 </body>
 

@@ -1,0 +1,188 @@
+{
+	"courses": [{
+			"course_number": "101",
+			"course_ name": "Introduction to Programming",
+			"credits": "1",
+			"description": "Introduction to programming. Emphasis on developing problem-solving skills and programming techniques. Topics include control structures, procedural abstraction, and introductory linear data structures.",
+			"prereqs": "A total of 3 credits may be earned, but no more than 1 in any one semester or term."
+		}
+	]
+}
+
+
+101 Introduction to Programming (1)
+Introduction to programming. Emphasis on developing problem-solving skills and programming techniques. Topics include control structures, procedural abstraction, and introductory linear data structures.
+
+104 Introduction to Computers (3)
+Introduction to the microcomputer as a word processing, spreadsheet, database, and communications tool. Intended for those in other disciplines. Hardware and software trends, opportunities, and responsibilities in computing are discussed. Lecture and laboratory. Core Transfer Library: Physical Sciences (IPS 1740) 
+    Not open to students who have credit in ISOM 125.                
+    Open only to BGS students, speech pathology majors, or radiography associate degree. 
+
+105 Multimedia Programming (1)
+Introduction to end-user multimedia programming for Internet deployment. Includes laboratory use of common software tools, such as Flash and ActionScript, for creation, manipulation, and network transfer of multimedia content.
+
+106 Digital Imaging for the Web (1)
+Understanding multimedia compression algorithms and storage formats, such as JPEG, PNG, TIFF, and BMP, and their applications to the Web. Includes laboratory use of common software tools such as Photoshop and Dreamweaver for creation, manipulation, and network transfer of graphics and Web pages.
+
+107 Personal Computing (1)
+Topics include home networking, hardware and software trends, digital media, storage formats such as MP3 and MPEG4, ubiquitous computing, ethics, digital rights management, and personal entertainment devices. Includes laboratory use of common tools and devices.
+
+110 Introduction to Computer Science and Web Programming (3)
+An introduction to Web programming utilizing HTML and a Web programming language. A broad survey of computer science including its history, applications, programming languages, and computer architecture. 
+
+120 Computer Science 1 (4)
+Introduction to programming using a high-level language and an established programming paradigm. Emphasis on developing problem-solving skills and programming techniques. Topics include control structures, built-in data structures, simple sorting and searching, procedural abstraction, and paradigm-specific concepts and constructs. Required open-lab and closed-lab assignments to bring theory to practice.
+    Prerequisite or parallel: MATH 111 or 112 or 132 or 136 or 161 or 165 or equivalent (e.g., high enough math placement or completion of high school trigonometry or precalculus.)
+
+121 Computer Science 2 (4)
+Continuation of Computer Science 1. Strong emphasis on object-oriented paradigm and related problem-solving skills and programming techniques. Topics include recursion, dynamic data structures and related algorithms, sorting and searching, file processing, and using standard libraries in chosen object-oriented environment. Open-lab and closed-lab assignments are required. 
+    Prerequisite: CS 120 with a C- or better grade.
+
+124 Discrete Structures (3)
+Introduction to topics in discrete structures for computer science majors. Topics include propositional and predicate logic, sets, induction, recursion, relations, functions, combinatorial enumeration, Boolean algebra, and finite state machines. Applications of these topics to computer science are discussed.
+
+200 Computers and Society (3)
+Introduction to relationship between computers, the Internet, and the laws regulating them, including the U.S. Constitution, intellectual property law, fair use, and privacy rights. Encryption technologies and its application to privacy, authentication, and digital rights management are central to these issues. Includes significant reading and writing assignments.
+
+203 Introduction to Computer Security (3)
+Introduction to network infrastructure, security threats, organization of file systems, encryption and decryption algorithms, authentication algorithms, programming and deployment of firewalls, intrusion detection systems, and virtual private networks, forensics, malicious software, and system administration. 
+    Prerequisite: CS 110 or 120.
+
+222 Advanced Programming (3)
+Project-intensive study of advanced topics and best practices in software development, including advanced language features, modular decomposition, and development tools. 
+    Prerequisite: CS 121 with a C- or better and either CS 124 or MATH 215 with a C- or better and ENG 103 or equivalent.        
+    Prerequisite or parallel: ENG 104 or 114 or equivalent (e.g., testing or placement).
+    Open only to students in majors, minors, certificate programs, and graduate students of the Department of Computer Science.
+
+224 Design and Analysis of Algorithms (3)
+Topics include: analysis of algorithms; dynamic programming; probabilistic algorithms, examples of geometric, combinatorial, and graph algorithms, pattern matching; introduction to NP-completeness.
+    Prerequisite: CS 121 with a C- or better and either CS 124 or MATH 215 with a C- or better.    
+    Open only to students in majors, minors, certificate programs and graduate students of the Department of Computer Science.
+
+230 Computer Organization and Architecture (3)
+Performance measurement and benchmarking, assembly language, machine language, integer and floating-point arithmetic, processor architectures, register sets, and microprogramming.                 
+    Prerequisite: CS 121 and either CS 124 or MATH 215, all with C- or better grades.
+
+239 Social and Professional Issues (1)
+Discussion of social and professional issues in computer science.
+    Prerequisite: CS 222 with a C- or better grade.
+
+249 Forensics (3)
+Introduction to digital forensics as applied to gathering evidence of inappropriate behavior on a computer. Includes an examination of prominent file system architectures and search algorithm techniques, physical characteristics of magnetic media, secure deletion methodologies, and cryptology. 
+    Prerequisite: CS 203.
+
+269 Service Learning (1-3)
+Professional or volunteer work experience in computing. Students must submit a project plan and obtain supervisor approval before registering. Requires verification of project completion. Offered credit/no credit only. 
+    Prerequisite: one of CS 110, 120; permission of the department chairperson.
+    A total of 3 credits may be earned.
+
+299 Experimental/Developmental Topics (3-6)
+Topics relevant to the discipline. Course titles will be announced before each semester.
+    A total of 6 credits may be earned.
+
+300 Local and Wide Area Networks (3)
+An introductory networking course with hands-on labs. LAN usage: file servers, print servers, and database servers. LAN design: writing systems, protocols, interconnection devices, and operating systems. WAN usage: file transfer protocols and remote information systems. WAN design: leased phone lines, protocols, and routers.
+    Parallel: CS 120 or 203.
+
+310 Web Programming (3)
+Advanced HTML, including XHTML, Cascading Style Sheets, Java Script and Dynamic HTML. XML including DTDs and XSL. Server side programming, security issues, and encryption-based security mechanisms.         
+    Prerequisite: CS 121 with a C- or better grade.  
+
+315 Game Programming (3)
+Serves as an introduction to game programming, and topics include active and passive rendering, sprite animation, collision detection, audio playback, input devices, deployment, and applications of artificial intelligence.         
+    Prerequisite: CS 222 with a C- or better grade.  
+
+320 Mobile Software Development (3)
+Developing software for iOS and/or Android phones and/or tablets. Using programming languages for those platforms such as Objective- C, Swift, and/or Java. Includes introductions to programming graphical user interfaces and consuming web services.        
+    Prerequisite: CS 121 with a C- or better.  
+
+321 Data Analytics (3)
+Introduction to data acquisition, transformation, manipulation, and visualization on large-scale structured and unstructured data. Discussion of basic data analytics methods and algorithms. Application of data analytics in business, web, social networks, and science domains.
+    Prerequisite: CS 121.  
+
+327 Distributed Processing and Networks (3)
+The hardware and software of computer networks and distributed processing. Develops the important design parameters and a general design methodology.
+    Prerequisite: CS 224 with a C- or better grade. 
+
+335 Programming Languages (3)
+Study of principles of programming languages. Emphasizes language paradigms and important features, structures, characteristics, and formal syntax of modern high-level programming languages. Examples of languages in each paradigm will be studied.                 
+    Prerequisite: CS 222 and 230, both with C- or better grades.
+
+339 Advanced Topics Seminar (3-6)
+In-depth study of a topic taught in a seminar format. Topics will be posted in the department before registration.
+    Prerequisite: CS 222 with C- or better grade and permission of the department chairperson.
+    A total of 6 credits may be earned.
+    Open only to juniors and seniors.
+
+345 Human-Computer Interaction (3)
+Investigation into the principles and practice of user interface design, evaluation, and implementation. Topics include user-centered design, graphical user interface programming, evaluation methods, and software architectures.         
+    Prerequisite: CS 222 with a C- or better grade.
+
+346 Database Design (3)
+An introduction to database design, including physical representation, modeling, database systems, and implementation.
+    Prerequisite: CS 222 with a C- or better grade.
+
+369 Professional Experience 1 (1-3)
+Professional or volunteer work experience in computing. Students must submit a project plan and obtain supervisor approval before registering. Requires verification of project completion. Offered credit/no credit only.
+    Prerequisite: CS 222 with C- or better grade and permission of the department chairperson.
+    A total of 3 credits may be earned.
+
+370 Professional Experience 2 (1-6)
+Professional or volunteer work experience in computing. Students must submit a project plan and obtain supervisor approval before registering. Requires verification of project completion. Offered credit/no credit only. Note: unlike CS 369, this course does not count as an elective on the computer science major program.
+    Prerequisite: permission of the department chairperson.
+    Parallel: CS 369.
+    A total of 6 credits may be earned.
+
+376 Operating Systems (3)
+Investigate the functions and structure of computer operating systems, processors, and memory. Topics include process control, concurrency, scheduling, security, and file systems. Introduces topics in systems programming, including I/O programming, signals, and IPC.         
+    Prerequisite: CS 222 and 230, both with C- or better grades.  
+
+380 Theory of Computation 1 (3)
+Mathematical logic; alphabets and languages; finite automata, regular and nonregular languages, Kleene's theorem; regular grammars; pushdown automata and context-free grammars; Turing and Post machines; recursive and recursively enumerable languages; the Chomski Hierarchy.
+    Prerequisite: CS 224 with a C- or better grade.
+
+397 Multitier Web Architectures (3)
+Topics include n-tier architectures, data access and application logic layers, Web services, scalability, advanced XML, service-oriented architectures, object access protocols, and Web site administration and security. Projects will be used to reinforce concepts.                 
+    Prerequisite: CS 222 and 310, both with C- or better grades.
+
+430 Systems Programming (3)
+Considers the computer system from the points of view of its architecture, operating system, and applications. Topics include processor organization, peripheral devices, I/O programming, system programs, monitor services, file organization, and real-time applications.
+    Prerequisite: CS 376 with a C- or better grade. 
+
+438 Computer Graphics (3)
+Methods of developing, modifying, and rendering graphics displays. Emphasizes the design and writing of graphics software for both two- and three-dimensional displays. Knowledge of a structured high-level language is required.         
+    Prerequisite: CS 222 with a C- or better grade.  
+
+446 System Administration (3)
+Creating user accounts, local user authentication, network user authentication with encryption, filesystem and fileserver access control, configuration of Web servers, Web server authentication, and traffic encryption.        
+    Prerequisite: CS 300 or 327 or TCMP 210 or CIS 317 with a C- or better.  
+
+447 Network Security (3)
+Topics include encryption, decryption, protocols, viruses, network security, authentication, legal and ethical issues, and security in operating systems, databases, e-commerce, Internet, wireless. Algorithms, protocols and applications such as RSA, DES, SSL, Firewalls, Digital Signatures, VPNs and emerging topics will be explored.        
+    Prerequisite: CS 327 and 376, both with C- or better grades.  
+
+455 Data Mining (3)
+Introduction to data mining algorithms, implementations, and applications. Topics include data preprocessing, clustering analysis, data classification, mining association rules, complex data mining, Web mining, and new applications in data mining.         
+    Prerequisite: CS 222 with a C- or better grade.  
+
+456 Image Processing (3)
+Project based, dealing with the basic principles of digital image processing and computer vision. Topics: digital image formats, geometric operations on digital images, filtering, histogramming, binarization of grayscale images, labeling binary images, perimeter and area determination, thinning operations, object recognition using global features, edge detection processes, and other topics as time permits.         
+    Prerequisite: CS 222 with a C- or better grade.  
+
+457 Applied Cryptography (3)
+Introduction of basic principles and application of cryptography. Topics include encryption, decryption, private and public key systems, and their mathematical foundation: divisibility and Euclidean algorithm, arithmetic of congruences, and large prime numbers. Projects are implementations of related algorithms. LISP and JAVA are recommended languages.         
+    Prerequisite: CS 222 with a C- or better grade.  
+
+495 Software Engineering 1 (3)
+Introduction to software engineering: process, requirements, design, quality assurance, project management, and tools. Capstone project for the computer science major. Teams work on year-long immersive projects and perform all software development tasks in cooperation with a client partner. To be taken in the last full academic year before graduation.                 
+    Prerequisite: CS 222 with a C- or better grade; COMM 210; and permission of the department chairperson.
+
+498 Software Engineering 2 (3)
+Continuation of CS 495. Must be taken in the semester following CS 495. Involves a senior capstone project with an external client partner.
+    Prerequisite: CS 495.
+    Open only to computer science majors.
+
+499 Independent Study (1-6)
+Special advanced studies of computer science topics not taught in other courses.
+     A total of 6 credits may be earned.
+    Open only to juniors and seniors. 
