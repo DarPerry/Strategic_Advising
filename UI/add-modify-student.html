@@ -25,47 +25,48 @@
 
 
             $("#generateButton").click(function() {
-
-                $.ajax({
-                    url: "../course_plans/computerScience.cpl",
-                    success: function(data) {
-                        //                        var coursesTaken = new Array();
-                        var coursesTaken = "MATH111;"
-                        var catalogArray = new Array();
-                        var semester = new Array();
-                        var studentSchedule = new Array();
-                        var coursePlan = JSON.parse(data);
-                        var maxCredits = 15;
-
-
-                        var semseterCreditLoad = 0;
-                        coursePlan.forEach(function(course) {
-                            catalogArray.push({
-                                "number": course.number,
-                                "credits": course.credits,
-                                "name": course.name,
-                                "prereqs": course.prereqs,
-                                "parallels": course.parallels
-                            })
-                        });
-
-                        for (var i = 0; i < catalogArray.length; i++) {
-                            semseterCreditLoad += parseInt(catalogArray[i].credits);
-                            if (semseterCreditLoad <= maxCredits && coursesTaken.includes(catalogArray[i].prereqs)) {
-                                // and if preqreqs are in course take
-                                coursesTaken.push(catalogArray[i].number)
-                                semester.push(catalogArray[i].number);
-                                // and remove this course from array
-
-
-                            }
-                        }
-                        alert(semester)
-
-
-                    }
-                })
-                return false;
+                window.location.href = "output.html";
+                return false
+//                $.ajax({
+//                    url: "../course_plans/computerScience.cpl",
+//                    success: function(data) {
+//                        //                        var coursesTaken = new Array();
+//                        var coursesTaken = "MATH111;"
+//                        var catalogArray = new Array();
+//                        var semester = new Array();
+//                        var studentSchedule = new Array();
+//                        var coursePlan = JSON.parse(data);
+//                        var maxCredits = 15;
+//
+//
+//                        var semseterCreditLoad = 0;
+//                        coursePlan.forEach(function(course) {
+//                            catalogArray.push({
+//                                "number": course.number,
+//                                "credits": course.credits,
+//                                "name": course.name,
+//                                "prereqs": course.prereqs,
+//                                "parallels": course.parallels
+//                            })
+//                        });
+//
+//                        for (var i = 0; i < catalogArray.length; i++) {
+//                            semseterCreditLoad += parseInt(catalogArray[i].credits);
+//                            if (semseterCreditLoad <= maxCredits && coursesTaken.includes(catalogArray[i].prereqs)) {
+//                                // and if preqreqs are in course take
+//                                coursesTaken.push(catalogArray[i].number)
+//                                semester.push(catalogArray[i].number);
+//                                // and remove this course from array
+//
+//
+//                            }
+//                        }
+//                        alert(semester)
+//
+//
+//                    }
+//                })
+//                return false;
                 //                var arr = new Array();
                 //                var studentSchedule = new Array();
                 //                var maxCredits = 15;

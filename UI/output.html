@@ -14,6 +14,38 @@
     <script>
         $(document).ready(function() {
 
+            $("#add").click(function() {
+
+                $("#container").toggleClass("blurred");
+                $("#addTable").append("<tr id='draggable'><td><input type='text' style='width:50px' class='inputInfo'></td><td><td><input type='text' class='inputInfo'></td><td><td><input type='text' style='width:15px' class='inputInfo'></td></tr>");
+                $("#draggable").draggable();
+
+            });
+
+            $("#edit").on("keyup", '.inputInfo', function(event) {
+                if (event.keyCode === 13) {
+                    var inputs = $("input[type='text']")
+                    $("#addTable").find("#draggable").html("<td>" + inputs.eq(0).val() + "</td><td>" + inputs.eq(1).val() + "</td><td>" + inputs.eq(2).val() + "</td>");
+                    $("#container").toggleClass("blurred");
+                    $("#draggable").draggable();
+
+
+                }
+            });
+
+            $("#delete").droppable({
+                drop: function(event, ui) {
+                    $("#draggable").remove();
+
+                }
+            })
+
+
+
+            $(".tab").click(function() {
+                window.location.href = "search-page.html";
+            });
+
             $("tbody").on('mousedown', 'tr', function() {
                 $(this).attr("id", "draggable");
                 $("#draggable").draggable();
@@ -21,11 +53,11 @@
 
             });
 
-
             $("tbody").droppable({
                 drop: function(event, ui) {
-                    $(this).append("<tr>" + $("#draggable").html() + "</tr>")
+                    $(this).append("<tr>" + $("#draggable").html() + "</tr>");
                     $("#draggable").remove();
+
                 }
             })
         });
@@ -37,9 +69,18 @@
 
 <body>
 
-    <div id="header"></div>
+
+    <div id="header">
+        <div class="tab">Search Student</div>
+    </div>
+    <div id="edit">
+        <img src="images/add.png" id="add" />
+        <table id="addTable"></table>
+        <img src="images/delete.png" id="delete" />
+    </div>
     <div id="container">
         <div class="yearPlan" id="year1">
+            <h2>Freshman Year</h2>
             <table>
                 <thead>
                     <tr>
@@ -55,13 +96,23 @@
                         <td>4</td>
                     </tr>
                     <tr>
-                        <td>CS397</td>
-                        <td>Multitier Web Arch.</td>
+                        <td>MATH161/165</td>
+                        <td>Math Course 1</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>ENG103</td>
+                        <td>Rhetoric and Writing</td>
                         <td>3</td>
                     </tr>
                     <tr>
-                        <td>CS345</td>
-                        <td>Human Cimputer Interacion</td>
+                        <td>SCI</td>
+                        <td>Tier 1 Natural Science</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>PFW</td>
+                        <td>Wellness Course</td>
                         <td>3</td>
                     </tr>
 
@@ -80,20 +131,31 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS121</td>
+                        <td>CS 121</td>
                         <td>Computer Science 2</td>
                         <td>4</td>
                     </tr>
                     <tr>
-                        <td>CS222</td>
-                        <td>Advanced Programming</td>
+                        <td>MATH/162/166</td>
+                        <td>Math Course 2</td>
+                        <td>3 or 4</td>
+                    </tr>
+                    <tr>
+                        <td>CS124</td>
+                        <td>Discrete Structures</td>
                         <td>3</td>
                     </tr>
                     <tr>
-                        <td>CS498</td>
-                        <td>Software Engineerin 2</td>
+                        <td>FIN101</td>
+                        <td> Personal Finance for Fiscal Wellness</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>ENG104</td>
+                        <td>Composing Research </td>
                         <td>3</td>
                     </tr>
+
 
 
 
@@ -106,9 +168,271 @@
 
 
         </div>
-        <div class="yearPlan"></div>
-        <div class="yearPlan"></div>
-        <div class="yearPlan"></div>
+        <div class="yearPlan" id="year2">
+            <h2>Sophmore Year</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS222</td>
+                        <td>Advanced Programming</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS230</td>
+                        <td>Computer Organization and Architecture</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>UCC</td>
+                        <td>Tier 1 Social Science</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>SCI</td>
+                        <td>Tier 1 Natural Science</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>TBD</td>
+                        <td>MATH221 or ECON 221</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>COMM210</td>
+                        <td>Fundamentals of Public Speaking</td>
+                        <td>3</td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS 200</td>
+                        <td>Computers and Society</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS239</td>
+                        <td>Social and Professional Issues</td>
+                        <td>3 or 4</td>
+                    </tr>
+                    <tr>
+                        <td>CS324</td>
+                        <td>Design and Analysis of Algorithms</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS</td>
+                        <td> CS Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>UCC</td>
+                        <td>T1 H</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>UCC</td>
+                        <td>T1 Fine Arts</td>
+                        <td>3</td>
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="yearPlan" id="year3">
+            <h2>Junior Year</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS335</td>
+                        <td>Programming Languages </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS376</td>
+                        <td>Operating Systems </td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS380</td>
+                        <td>Theory of Computation</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>UCC</td>
+                        <td>Tier 2 Non-Natural Science</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>HIST150</td>
+                        <td>The West in the World</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>WPP392</td>
+                        <td>Writing Proficiency Exam</td>
+                        <td>3</td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS327</td>
+                        <td>Computers and Society</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS436</td>
+                        <td> Distributed Processing and Networks</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS</td>
+                        <td>CS Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS</td>
+                        <td>CS Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="yearPlan" id="year4">
+            <h2>Senior Year</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS495</td>
+                        <td>Software Engineering 1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS</td>
+                        <td>CS Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Number</th>
+                        <th>Course Title</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="droppable">
+                    <tr>
+                        <td>CS498</td>
+                        <td>Software Engineering 2</td>
+                        <td>3</td>
+                    </tr>
+
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GEN</td>
+                        <td>General Elective</td>
+                        <td>3</td>
+                    </tr>
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
     </div>
     <div id="footer">
 

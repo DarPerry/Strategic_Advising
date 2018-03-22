@@ -4,18 +4,66 @@
 
 }
 
+.blurred {
+    filter: blur(5px) brightness(0.5);
+
+}
+
+input[type="text"] {
+    border: none;
+}
+
+#draggable {
+/*    border: solid #00ffff;*/
+}
+
+#edit {
+    height: 100px;
+    width: 40px;
+    position: fixed;
+    left: 50px;
+    z-index: 1;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
 tr {
     height: 25px;
-    background-color #BA0C2F:
+}
+
+th {
+    background-color: #BA0C2F;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: lightgray;
 }
 
 
+.tab {
+    color: #FFFFFF;
+    position: relative;
+    top: 8px;
+    left: 20px;
+    border-radius: 2px;
+    padding: 4px;
+    display: inline-block;
+}
+
+.tab:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .1);
+}
 
 
-
-
-
-
+table {}
 
 html {
     background-color: #FFFFFF;
@@ -70,6 +118,10 @@ table {
 
 .credits {
     width: 25px;
+}
+
+.highlight {
+    border: solid 2px #00BFFF;
 }
 
 /*# sourceMappingURL=output-stylesheet.css.map */
