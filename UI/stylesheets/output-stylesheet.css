@@ -17,6 +17,16 @@ input[type="text"] {
 /*    border: solid #00ffff;*/
 }
 
+tr:hover{
+    cursor: grab;
+}
+
+
+
+.dragging:hover{
+    cursor: grabbing;
+}
+
 #edit {
     height: 100px;
     width: 40px;
@@ -124,4 +134,8 @@ table {
     border: solid 2px #00BFFF;
 }
 
+tfoot tr{
+    background-color: gray;
+    color: white;
+}
 /*# sourceMappingURL=output-stylesheet.css.map */
