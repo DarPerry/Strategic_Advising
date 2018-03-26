@@ -4,6 +4,10 @@
 
 }
 
+.caution{
+    color: yellow;
+}
+
 .blurred {
     filter: blur(5px) brightness(0.5);
 
@@ -17,7 +21,7 @@ input[type="text"] {
 /*    border: solid #00ffff;*/
 }
 
-tr:hover{
+tbody tr:hover{
     cursor: grab;
 }
 

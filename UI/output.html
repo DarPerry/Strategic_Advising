@@ -12,16 +12,129 @@
 
     <title>Strategic Advising</title>
     <script>
+        function emailTo() {
+
+            var studentObject = sessionStorage.getItem("studentInformation");
+            var studentInfo = JSON.parse(studentObject);
+
+            var input = document.getElementById('email');
+            email = studentInfo.student_email;
+            var input = document.getElementById('subject');
+            subject = window.prompt("Email Subject:");
+
+            window.location.href = "mailto:" + email + "?subject=" + subject;
+        }
+
+
+        var tablesToExcel = (function() {
+            var uri = 'data:application/vnd.ms-excel;base64,',
+                template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets>',
+                templateend = '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head>',
+                body = '<body>',
+                tablevar = '<table>{table',
+                tablevarend = '}</table>',
+                bodyend = '</body></html>',
+                worksheet = '<x:ExcelWorksheet><x:Name>',
+                worksheetend = '</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>',
+                worksheetvar = '{worksheet',
+                worksheetvarend = '}',
+                base64 = function(s) {
+                    return window.btoa(unescape(encodeURIComponent(s)))
+                },
+                format = function(s, c) {
+                    return s.replace(/{(\w+)}/g, function(m, p) {
+                        return c[p];
+                    })
+                },
+                wstemplate = '',
+                tabletemplate = '';
+
+            return function(table, name, filename) {
+                var tables = table;
+
+                for (var i = 0; i < tables.length; ++i) {
+                    wstemplate += worksheet + worksheetvar + i + worksheetvarend + worksheetend;
+                    tabletemplate += tablevar + i + tablevarend;
+                }
+
+                var allTemplate = template + wstemplate + templateend;
+                var allWorksheet = body + tabletemplate + bodyend;
+                var allOfIt = allTemplate + allWorksheet;
+
+                var ctx = {};
+                for (var j = 0; j < tables.length; ++j) {
+                    ctx['worksheet' + j] = name[j];
+                }
+
+                for (var k = 0; k < tables.length; ++k) {
+                    var exceltable;
+                    if (!tables[k].nodeType) exceltable = document.getElementById(tables[k]);
+                    ctx['table' + k] = exceltable.innerHTML;
+                }
+
+                //document.getElementById("dlink").href = uri + base64(format(template, ctx));
+                //document.getElementById("dlink").download = filename;
+                //document.getElementById("dlink").click();
+
+                window.location.href = uri + base64(format(allOfIt, ctx));
+
+            }
+        })();
         $(document).ready(function() {
 
+            $("#mail").attr("href", "mailto:hello")
+
+
+            $("#btnExport").click(function(e) {
+
+                fnExcelReport()
+
+            });
+
+            var studentObject = sessionStorage.getItem("studentInformation");
+            var studentInfo = JSON.parse(studentObject);
+            var minimumCredits = studentInfo.min_credits;
+            var maximumCredits = studentInfo.max_credits;
+            var studentSchedule = studentInfo.schedule;
+
+
+            $("#save").click(function() {
+                //                alert(studentInfo.schedule[0].year[0])
+                var count = 0;
+                var semester = new Array();
+                var year = new Array();
+                var academicPlan = new Array()
+                studentInfo.schedule = "Hello";
+
+                $(".yearPlan").each(function() {
+                    $(this).find("table").each(function() {
+                        $(this).find("tbody tr .number").each(function() {
+                            semester.push($(this).first().html())
+                        })
+                        year.push(semester);
+                        semester = new Array();
+                    })
+                    academicPlan.push(year)
+                    year = new Array();
+
+                })
+                //acadmic plan contains all info needed
+                var newPlan = ""
+
+            })
+
+
+
+
+
             //--
-            var pageLoadTotal = 0;
+            var total = 0;
             $("tbody").each(function() {
                 $(this).find(".credits").each(function() {
-                    pageLoadTotal += parseInt($(this).html());
+                    total += parseInt($(this).html());
                 });
-                $(this).parent().find("#totalCredits").html(pageLoadTotal);
-                pageLoadTotal = 0;
+                $(this).parent().find("#totalCredits").html(total);
+                total = 0;
 
             });
             //--
@@ -76,17 +189,21 @@
                     $(this).append("<tr>" + $("#draggable").html() + "</tr>");
                     $("#draggable").remove();
 
-
                     var total = 0;
                     $("tbody").each(function() {
                         $(this).find(".credits").each(function() {
-                            pageLoadTotal += parseInt($(this).html());
+                            total += parseInt($(this).html());
                         });
-                        $(this).parent().find("#totalCredits").html(pageLoadTotal);
-                        pageLoadTotal = 0;
+                        $(this).parent().find("#totalCredits").html(total);
+                        total = 0;
+
+                        if ($(this).parent().find("#totalCredits").html() < minimumCredits || $(this).parent().find("#totalCredits").html() > maximumCredits) {
+                            $(this).parent().find("#totalCredits").addClass("caution");
+                        } else {
+                            $(this).parent().find("#totalCredits").removeClass("caution");
+                        }
 
                     });
-
                 }
             })
         });
@@ -100,17 +217,21 @@
 
 
     <div id="header">
+
         <div class="tab">Search Student</div>
     </div>
     <div id="edit">
         <img src="images/add.png" id="add" />
         <table id="addTable"></table>
         <img src="images/delete.png" id="delete" />
+        <img src="images/save.png" id="save" />
+        <img src="images/export.png" id="export" onclick="tablesToExcel(['year1', 'year2', 'year3', 'year4'], ['first', 'second', 'third', 'fourth'], 'myfile.xls')" />
+        <img src="images/email.png" id="mail" onclick="emailTo()" />
     </div>
     <div id="container">
         <div class="yearPlan" id="year1">
             <h2>Freshman Year</h2>
-            <table>
+            <table id='myTable'>
                 <thead>
                     <tr>
                         <th>Course Number</th>
@@ -120,28 +241,28 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS120</td>
+                        <td class="number">CS120</td>
                         <td>Computer Science 1</td>
                         <td class="credits">4</td>
                     </tr>
                     <tr>
-                        <td>MATH161/165</td>
+                        <td class="number">MATH161/165</td>
                         <td>Math Course 1</td>
                         <td class="credits">3</td>
                         <!--                        Math 165 is 4 credits-->
                     </tr>
                     <tr>
-                        <td>ENG103</td>
+                        <td class="number">ENG103</td>
                         <td>Rhetoric and Writing</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>SCI</td>
+                        <td class="number">SCI</td>
                         <td>Tier 1 Natural Science</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>PFW</td>
+                        <td class="number">PFW</td>
                         <td>Wellness Course</td>
                         <td class="credits">3</td>
                     </tr>
@@ -167,27 +288,27 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS 121</td>
+                        <td class="number">CS 121</td>
                         <td>Computer Science 2</td>
                         <td class="credits">4</td>
                     </tr>
                     <tr>
-                        <td>MATH/162/166</td>
+                        <td class="number">MATH/162/166</td>
                         <td>Math Course 2</td>
                         <td class="credits">3 or 4</td>
                     </tr>
                     <tr>
-                        <td>CS124</td>
+                        <td class="number">CS124</td>
                         <td>Discrete Structures</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>FIN101</td>
+                        <td class="number">FIN101</td>
                         <td> Personal Finance for Fiscal Wellness</td>
                         <td class="credits">1</td>
                     </tr>
                     <tr>
-                        <td>ENG104</td>
+                        <td class="number">ENG104</td>
                         <td>Composing Research </td>
                         <td class="credits">3</td>
                     </tr>
@@ -222,32 +343,32 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS222</td>
+                        <td class="number">CS222</td>
                         <td>Advanced Programming</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS230</td>
+                        <td class="number">CS230</td>
                         <td>Computer Organization and Architecture</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>UCC</td>
+                        <td class="number">UCC</td>
                         <td>Tier 1 Social Science</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>SCI</td>
+                        <td class="number">SCI</td>
                         <td>Tier 1 Natural Science</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>TBD</td>
+                        <td class="number">TBD</td>
                         <td>MATH221 or ECON 221</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>COMM210</td>
+                        <td class="number">COMM210</td>
                         <td>Fundamentals of Public Speaking</td>
                         <td class="credits">3</td>
                     </tr>
@@ -273,32 +394,32 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS 200</td>
+                        <td class="number">CS 200</td>
                         <td>Computers and Society</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS239</td>
+                        <td class="number">CS239</td>
                         <td>Social and Professional Issues</td>
                         <td class="credits">3 or 4</td>
                     </tr>
                     <tr>
-                        <td>CS324</td>
+                        <td class="number">CS324</td>
                         <td>Design and Analysis of Algorithms</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS</td>
+                        <td class="number">CS</td>
                         <td> CS Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>UCC</td>
+                        <td class="number">UCC</td>
                         <td>T1 H</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>UCC</td>
+                        <td class="number">UCC</td>
                         <td>T1 Fine Arts</td>
                         <td class="credits">3</td>
                     </tr>
@@ -327,32 +448,32 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS335</td>
+                        <td class="number">CS335</td>
                         <td>Programming Languages </td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS376</td>
+                        <td class="number">CS376</td>
                         <td>Operating Systems </td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS380</td>
+                        <td class="number">CS380</td>
                         <td>Theory of Computation</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>UCC</td>
+                        <td class="number">UCC</td>
                         <td>Tier 2 Non-Natural Science</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>HIST150</td>
+                        <td class="number">HIST150</td>
                         <td>The West in the World</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>WPP392</td>
+                        <td class="number">WPP392</td>
                         <td>Writing Proficiency Exam</td>
                         <td class="credits">3</td>
                     </tr>
@@ -378,32 +499,32 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS327</td>
+                        <td class="number">CS327</td>
                         <td>Computers and Society</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS436</td>
+                        <td class="number">CS436</td>
                         <td> Distributed Processing and Networks</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS</td>
+                        <td class="number">CS</td>
                         <td>CS Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS</td>
+                        <td class="number">CS</td>
                         <td>CS Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
@@ -433,27 +554,27 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS495</td>
+                        <td class="number">CS495</td>
                         <td>Software Engineering 1</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>CS</td>
+                        <td class="number">CS</td>
                         <td>CS Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
@@ -477,23 +598,23 @@
                 </thead>
                 <tbody id="droppable">
                     <tr>
-                        <td>CS498</td>
+                        <td class="number">CS498</td>
                         <td>Software Engineering 2</td>
                         <td class="credits">3</td>
                     </tr>
 
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
                     <tr>
-                        <td>GEN</td>
+                        <td class="number">GEN</td>
                         <td>General Elective</td>
                         <td class="credits">3</td>
                     </tr>
