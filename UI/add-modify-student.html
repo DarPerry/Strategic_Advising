@@ -19,6 +19,7 @@
 
         $(document).ready(function() {
             document.getElementById("form").reset();
+            
             //            window.alert(sessionStorage.getItem("studentInformation"));
             //            window.alert("New Student Mode: " + sessionStorage.getItem("newStudentMode"));
 
@@ -27,46 +28,46 @@
             $("#generateButton").click(function() {
                 window.location.href = "output.html";
                 return false
-//                $.ajax({
-//                    url: "../course_plans/computerScience.cpl",
-//                    success: function(data) {
-//                        //                        var coursesTaken = new Array();
-//                        var coursesTaken = "MATH111;"
-//                        var catalogArray = new Array();
-//                        var semester = new Array();
-//                        var studentSchedule = new Array();
-//                        var coursePlan = JSON.parse(data);
-//                        var maxCredits = 15;
-//
-//
-//                        var semseterCreditLoad = 0;
-//                        coursePlan.forEach(function(course) {
-//                            catalogArray.push({
-//                                "number": course.number,
-//                                "credits": course.credits,
-//                                "name": course.name,
-//                                "prereqs": course.prereqs,
-//                                "parallels": course.parallels
-//                            })
-//                        });
-//
-//                        for (var i = 0; i < catalogArray.length; i++) {
-//                            semseterCreditLoad += parseInt(catalogArray[i].credits);
-//                            if (semseterCreditLoad <= maxCredits && coursesTaken.includes(catalogArray[i].prereqs)) {
-//                                // and if preqreqs are in course take
-//                                coursesTaken.push(catalogArray[i].number)
-//                                semester.push(catalogArray[i].number);
-//                                // and remove this course from array
-//
-//
-//                            }
-//                        }
-//                        alert(semester)
-//
-//
-//                    }
-//                })
-//                return false;
+                //                $.ajax({
+                //                    url: "../course_plans/computerScience.cpl",
+                //                    success: function(data) {
+                //                        //                        var coursesTaken = new Array();
+                //                        var coursesTaken = "MATH111;"
+                //                        var catalogArray = new Array();
+                //                        var semester = new Array();
+                //                        var studentSchedule = new Array();
+                //                        var coursePlan = JSON.parse(data);
+                //                        var maxCredits = 15;
+                //
+                //
+                //                        var semseterCreditLoad = 0;
+                //                        coursePlan.forEach(function(course) {
+                //                            catalogArray.push({
+                //                                "number": course.number,
+                //                                "credits": course.credits,
+                //                                "name": course.name,
+                //                                "prereqs": course.prereqs,
+                //                                "parallels": course.parallels
+                //                            })
+                //                        });
+                //
+                //                        for (var i = 0; i < catalogArray.length; i++) {
+                //                            semseterCreditLoad += parseInt(catalogArray[i].credits);
+                //                            if (semseterCreditLoad <= maxCredits && coursesTaken.includes(catalogArray[i].prereqs)) {
+                //                                // and if preqreqs are in course take
+                //                                coursesTaken.push(catalogArray[i].number)
+                //                                semester.push(catalogArray[i].number);
+                //                                // and remove this course from array
+                //
+                //
+                //                            }
+                //                        }
+                //                        alert(semester)
+                //
+                //
+                //                    }
+                //                })
+                //                return false;
                 //                var arr = new Array();
                 //                var studentSchedule = new Array();
                 //                var maxCredits = 15;
@@ -159,13 +160,12 @@
                     $('.row').last().after(courseInfoRow);
 
                 });
-            } else if (sessionStorage.getItem("newStudentMode") == 'true') {
-                if (!sessionStorage.getItem("newStudentMode") == 'null') {
-                    $("#student-email").val(sessionStorage.getItem("newStudentEmail") + "@bsu.edu")
-                }
-
-
+            } else if (sessionStorage.getItem("newStudentMode") == 'true' || !sessionStorage.getItem("newStudentMode") == 'null') {
+                $("#id-number").val(sessionStorage.getItem("newStudentId"))
             }
+
+
+
 
             //Fix Method
             $("#submit-button").click(function() {
@@ -186,6 +186,7 @@
                     courses_taken.shift();
                     courses_taken.sort();
 
+                    //TODO fix below by adding schedule
                     var student =
                         '{"student_name": "' + $("#student-name").val() +
                         '", "student_email": "' + $("#student-email").val() +
@@ -198,11 +199,13 @@
                         '", "early_graduation": "' + GetCheckboxValue($('#early-graduation')) +
                         '", "honors_college": "' + GetCheckboxValue($('#honors-student')) +
                         '", "min_credits": ' + $("#min-credits").val() +
-                        ', "max_credits":  ' + $('#max-credits').val() + "}";
+                        ', "max_credits":  ' + $('#max-credits').val() +
+                        ', "schedule": []  }';
+
 
                     $.post('modifyStudent.php', {
                             student_info: student,
-                            student_email: $("#student-email").val()
+                            student_id: $("#id-number").val()
                         },
                         function(data) {
                             window.alert("Your new information has been saved.");
@@ -217,9 +220,25 @@
 
             $("#add-button").click(function() {
                 //Don't add if already exists
+                //TODO fille course data
+                
+                
                 if ($("#course-name").val() != '' && $("#course-number").val() != '') {
-                    $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td></tr>");
+                    $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td><td id ='ctitle'>N/A</td></tr>");
                 }
+                
+                $.ajax({
+                    url: "../course_plans/computerScience.cpl",
+                    success: function(data) {
+                        var parsedData = JSON.parse(data);
+                        parsedData.forEach(function(courseInCatalog){
+                            if ($("#course-name").last().val().toUpperCase() + $("#course-number").val() == courseInCatalog.number){
+                                $(".row").last().find("#ctitle").html(courseInCatalog.name)                               
+                            }
+                        })                        
+                    }
+                });
+                        
                 return false;
             });
 

@@ -1,6 +1,6 @@
 <?php
-$newStudent = $_POST['email'];
-$emptyStudentInfoTemplate = '{"student_name": "", "student_email": "", "id_number" : "" , "expected_graduation": "", "major": "undefined", "concentration": "undefined", "courses_taken": [],  "summer_classes": "false", "early_graduation": "false", "honors_college": "false", "min_credits": , "max_credits": }';
+$newStudent = $_REQUEST['id'];
+$emptyStudentInfoTemplate = '{"student_name": "", "student_email": "", "id_number" : "" , "expected_graduation": "", "major": "undefined", "concentration": "undefined", "courses_taken": [],  "summer_classes": "false", "early_graduation": "false", "honors_college": "false", "min_credits": "", "max_credits": "", "schedule": [] }';
 
 $fp = fopen("../students/".$newStudent.".sa", 'wb');
 

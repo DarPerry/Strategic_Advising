@@ -1,0 +1,1 @@
+{"student_name": "Test Person", "student_email": "Test@bsu.edu", "id_number" : 12345, "expected_graduation": "May 2020", "major": "Actuarial Mathematics", "concentration": "undefined", "courses_taken": [],  "summer_classes": "false", "early_graduation": "false", "honors_college": "false", "min_credits": 12, "max_credits":  18, "schedule": []  }

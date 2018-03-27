@@ -1,5 +1,5 @@
 <?php
-$fileName = $_REQUEST["email"];
+$fileName = $_REQUEST["id"];
 $fileToSearch = "../students/" . $fileName . ".sa";
     
 if (file_exists($fileToSearch)) {

@@ -17,6 +17,8 @@
             var studentObject = sessionStorage.getItem("studentInformation");
             var studentInfo = JSON.parse(studentObject);
 
+
+
             var input = document.getElementById('email');
             email = studentInfo.student_email;
             var input = document.getElementById('subject');
@@ -81,6 +83,126 @@
             }
         })();
         $(document).ready(function() {
+            var sessionStudentInformation = sessionStorage.getItem("studentInformation");
+            var parsedStudentInformation = JSON.parse(sessionStudentInformation);
+
+
+            if (parsedStudentInformation.schedule.length != 0) {
+                var tableString = "";
+                var yearInt = 1;
+                var studentStanding = "";
+
+
+
+
+
+
+
+
+
+                parsedStudentInformation.schedule.forEach(function(e) {
+                    if (yearInt == 1) {
+                        studentStanding = "Freshman";
+                    } else if (yearInt == 2) {
+                        studentStanding = "Sophmore";
+                    } else if (yearInt == 3) {
+                        studentStanding = "Junior";
+                    } else if (yearInt == 4) {
+                        studentStanding = "Senior";
+                    }
+                    tableString += "<div id='year" + yearInt + "' class='yearPlan'><h2>" + studentStanding + "</h2>"
+                    yearInt++;
+                    e.year.forEach(function(f) {
+                        tableString += "<table><thead><tr><th>Course Number</th><th>Course Title</th><th>Credits</th></tr></thead><tbody id='droppable'><tr>"
+                        f.forEach(function(g) {
+                            tableString += "<td class='number'>" + g + "</td><td class='title'></td><td class='credits'></td></tr>"
+                        })
+                        tableString += "</tbody><tfoot><tr><td colspan='2'>Total Credits:</td><td id='totalCredits'></td></tr></tfoot></table>";
+                    })
+                    tableString += "</div>"
+                })
+            } else {
+                //fix way of doing this
+                tableString = ' <div class="yearPlan" id="year1"> <h2>Freshman Year</h2> <table id="myTable" > <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS120</td> <td>Computer Science 1</td> <td class="credits">4</td> </tr> <tr> <td class="number">MATH161/165</td> <td>Math Course 1</td> <td class="credits">3</td> <!-- Math 165 is 4 credits--> </tr> <tr> <td class="number">ENG103</td> <td>Rhetoric and Writing</td> <td class="credits">3</td> </tr> <tr> <td class="number">SCI</td> <td>Tier 1 Natural Science</td> <td class="credits">3</td> </tr> <tr> <td class="number">PFW</td> <td>Wellness Course</td> <td class="credits">3</td> </tr> </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table> <table> <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS 121</td> <td>Computer Science 2</td> <td class="credits">4</td> </tr> <tr> <td class="number">MATH/162/166</td> <td>Math Course 2</td> <td class="credits">3 or 4</td> </tr> <tr> <td class="number">CS124</td> <td>Discrete Structures</td> <td class="credits">3</td> </tr> <tr> <td class="number">FIN101</td> <td> Personal Finance for Fiscal Wellness</td> <td class="credits">1</td> </tr> <tr> <td class="number">ENG104</td> <td>Composing Research </td> <td class="credits">3</td> </tr>  </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table>  </div> <div class="yearPlan" id="year2"> <h2>Sophmore Year</h2> <table> <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS222</td> <td>Advanced Programming</td> <td class="credits">3</td> </tr> <tr> <td class="number">CS230</td> <td>Computer Organization and Architecture</td> <td class="credits">3</td> </tr> <tr> <td class="number">UCC</td> <td>Tier 1 Social Science</td> <td class="credits">3</td> </tr> <tr> <td class="number">SCI</td> <td>Tier 1 Natural Science</td> <td class="credits">3</td> </tr> <tr> <td class="number">TBD</td> <td>MATH221 or ECON 221</td> <td class="credits">3</td> </tr> <tr> <td class="number">COMM210</td> <td>Fundamentals of Public Speaking</td> <td class="credits">3</td> </tr>  </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table> <table> <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS 200</td> <td>Computers and Society</td> <td class="credits">3</td> </tr> <tr> <td class="number">CS239</td> <td>Social and Professional Issues</td> <td class="credits">3 or 4</td> </tr> <tr> <td class="number">CS324</td> <td>Design and Analysis of Algorithms</td> <td class="credits">3</td> </tr> <tr> <td class="number">CS</td> <td> CS Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">UCC</td> <td>T1 H</td> <td class="credits">3</td> </tr> <tr> <td class="number">UCC</td> <td>T1 Fine Arts</td> <td class="credits">3</td> </tr>  </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table> </div> <div class="yearPlan" id="year3"> <h2>Junior Year</h2> <table> <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS335</td> <td>Programming Languages </td> <td class="credits">3</td> </tr> <tr> <td class="number">CS376</td> <td>Operating Systems </td> <td class="credits">3</td> </tr> <tr> <td class="number">CS380</td> <td>Theory of Computation</td> <td class="credits">3</td> </tr> <tr> <td class="number">UCC</td> <td>Tier 2 Non-Natural Science</td> <td class="credits">3</td> </tr> <tr> <td class="number">HIST150</td> <td>The West in the World</td> <td class="credits">3</td> </tr> <tr> <td class="number">WPP392</td> <td>Writing Proficiency Exam</td> <td class="credits">3</td> </tr>  </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table> <table> <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS327</td> <td>Computers and Society</td> <td class="credits">3</td> </tr> <tr> <td class="number">CS436</td> <td> Distributed Processing and Networks</td> <td class="credits">3</td> </tr> <tr> <td class="number">CS</td> <td>CS Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">CS</td> <td>CS Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr>  </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table> </div> <div class="yearPlan" id="year4"> <h2>Senior Year</h2> <table> <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS495</td> <td>Software Engineering 1</td> <td class="credits">3</td> </tr> <tr> <td class="number">CS</td> <td>CS Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr> </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table> <table> <thead> <tr> <th>Course Number</th> <th>Course Title</th> <th>Credits</th> </tr> </thead> <tbody id="droppable"> <tr> <td class="number">CS498</td> <td>Software Engineering 2</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr> <tr> <td class="number">GEN</td> <td>General Elective</td> <td class="credits">3</td> </tr>  </tbody> <tfoot> <tr> <td colspan="2">Total Credits:</td> <td id="totalCredits">0</td> </tr> </tfoot> </table> </div>';
+            }
+            $("#container").append(tableString)
+
+            //--------------------------------------------------------------------------------------//
+            $.ajax({
+                url: "../course_plans/computerScience.cpl",
+                success: function(data) {
+                    var catalogData = JSON.parse(data)
+                    $(".number").each(function(a) {
+                        console.log($(".number").eq(a).html())
+                        catalogData.forEach(function(x) {
+                            console.log(x.number)
+                            if ($(".number").eq(a).html() == x.number) {
+                                console.log("*--HIT--*")
+                                $(".number").eq(a).parent().find(".credits").html(x.credits)
+                                $(".number").eq(a).parent().find(".title").html(x.name)
+                            }
+                        })
+
+                    })
+                },
+            });
+
+
+
+
+
+
+
+            $("#save").click(function() {
+                var studentSchedule = new Array();
+                var studentObject = sessionStorage.getItem("studentInformation");
+                var studentInfo = JSON.parse(studentObject);
+                var semester = new Array();
+                var year = new Array();
+
+                $(".yearPlan").each(function() {
+                    $(this).find("table").each(function(e) {
+                        $(this).find(".number").each(function(f) {
+                            semester.push('"' + $(this).html() + '"');
+                        })
+                        year.push("[" + semester + "]");
+                        semester = new Array()
+
+                    })
+                    studentSchedule.push(' {"year": [' + year + ']}');
+                    year = new Array()
+                })
+
+                var student =
+                    '{"student_name": "' + studentInfo.student_name +
+                    '", "student_email": "' + studentInfo.student_email +
+                    '", "id_number" : ' + studentInfo.id_number +
+                    ', "expected_graduation": "' + studentInfo.expected_graduation +
+                    '", "major": "' + studentInfo.major +
+                    '", "concentration": "' + studentInfo.concentration +
+                    '", "courses_taken": ["' + studentInfo.courses_taken +
+                    '"],  "summer_classes": "' + studentInfo.summer_classes +
+                    '", "early_graduation": "' + studentInfo.early_graduation +
+                    '", "honors_college": "' + studentInfo.honors_college +
+                    '", "min_credits": ' + studentInfo.min_credits +
+                    ', "max_credits":  ' + studentInfo.max_credits +
+                    ', "schedule": [' + studentSchedule + "]}";
+
+                $.ajax({
+                    url: "modifyStudent.php",
+                    data: {
+                        student_info: student,
+                        student_id: studentInfo.id_number
+                    },
+                    success: function(data) {
+                        window.alert(data)
+                    }
+                })
+
+
+            })
+
+
 
             $("#mail").attr("href", "mailto:hello")
 
@@ -96,35 +218,6 @@
             var minimumCredits = studentInfo.min_credits;
             var maximumCredits = studentInfo.max_credits;
             var studentSchedule = studentInfo.schedule;
-
-
-            $("#save").click(function() {
-                //                alert(studentInfo.schedule[0].year[0])
-                var count = 0;
-                var semester = new Array();
-                var year = new Array();
-                var academicPlan = new Array()
-                studentInfo.schedule = "Hello";
-
-                $(".yearPlan").each(function() {
-                    $(this).find("table").each(function() {
-                        $(this).find("tbody tr .number").each(function() {
-                            semester.push($(this).first().html())
-                        })
-                        year.push(semester);
-                        semester = new Array();
-                    })
-                    academicPlan.push(year)
-                    year = new Array();
-
-                })
-                //acadmic plan contains all info needed
-                var newPlan = ""
-
-            })
-
-
-
 
 
             //--
@@ -229,409 +322,7 @@
         <img src="images/email.png" id="mail" onclick="emailTo()" />
     </div>
     <div id="container">
-        <div class="yearPlan" id="year1">
-            <h2>Freshman Year</h2>
-            <table id='myTable'>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS120</td>
-                        <td>Computer Science 1</td>
-                        <td class="credits">4</td>
-                    </tr>
-                    <tr>
-                        <td class="number">MATH161/165</td>
-                        <td>Math Course 1</td>
-                        <td class="credits">3</td>
-                        <!--                        Math 165 is 4 credits-->
-                    </tr>
-                    <tr>
-                        <td class="number">ENG103</td>
-                        <td>Rhetoric and Writing</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">SCI</td>
-                        <td>Tier 1 Natural Science</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">PFW</td>
-                        <td>Wellness Course</td>
-                        <td class="credits">3</td>
-                    </tr>
 
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS 121</td>
-                        <td>Computer Science 2</td>
-                        <td class="credits">4</td>
-                    </tr>
-                    <tr>
-                        <td class="number">MATH/162/166</td>
-                        <td>Math Course 2</td>
-                        <td class="credits">3 or 4</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS124</td>
-                        <td>Discrete Structures</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">FIN101</td>
-                        <td> Personal Finance for Fiscal Wellness</td>
-                        <td class="credits">1</td>
-                    </tr>
-                    <tr>
-                        <td class="number">ENG104</td>
-                        <td>Composing Research </td>
-                        <td class="credits">3</td>
-                    </tr>
-
-
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-
-
-
-
-
-        </div>
-        <div class="yearPlan" id="year2">
-            <h2>Sophmore Year</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS222</td>
-                        <td>Advanced Programming</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS230</td>
-                        <td>Computer Organization and Architecture</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">UCC</td>
-                        <td>Tier 1 Social Science</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">SCI</td>
-                        <td>Tier 1 Natural Science</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">TBD</td>
-                        <td>MATH221 or ECON 221</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">COMM210</td>
-                        <td>Fundamentals of Public Speaking</td>
-                        <td class="credits">3</td>
-                    </tr>
-
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS 200</td>
-                        <td>Computers and Society</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS239</td>
-                        <td>Social and Professional Issues</td>
-                        <td class="credits">3 or 4</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS324</td>
-                        <td>Design and Analysis of Algorithms</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS</td>
-                        <td> CS Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">UCC</td>
-                        <td>T1 H</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">UCC</td>
-                        <td>T1 Fine Arts</td>
-                        <td class="credits">3</td>
-                    </tr>
-
-
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="yearPlan" id="year3">
-            <h2>Junior Year</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS335</td>
-                        <td>Programming Languages </td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS376</td>
-                        <td>Operating Systems </td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS380</td>
-                        <td>Theory of Computation</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">UCC</td>
-                        <td>Tier 2 Non-Natural Science</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">HIST150</td>
-                        <td>The West in the World</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">WPP392</td>
-                        <td>Writing Proficiency Exam</td>
-                        <td class="credits">3</td>
-                    </tr>
-
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS327</td>
-                        <td>Computers and Society</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS436</td>
-                        <td> Distributed Processing and Networks</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS</td>
-                        <td>CS Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS</td>
-                        <td>CS Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-
-
-
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="yearPlan" id="year4">
-            <h2>Senior Year</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS495</td>
-                        <td>Software Engineering 1</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">CS</td>
-                        <td>CS Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Number</th>
-                        <th>Course Title</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody id="droppable">
-                    <tr>
-                        <td class="number">CS498</td>
-                        <td>Software Engineering 2</td>
-                        <td class="credits">3</td>
-                    </tr>
-
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-                    <tr>
-                        <td class="number">GEN</td>
-                        <td>General Elective</td>
-                        <td class="credits">3</td>
-                    </tr>
-
-
-
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Total Credits:</td>
-                        <td id="totalCredits">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
     </div>
     <div id="footer">
 

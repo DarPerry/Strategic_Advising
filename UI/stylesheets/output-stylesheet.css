@@ -4,6 +4,10 @@
 
 }
 
+img:hover{
+    cursor: pointer;
+}
+
 .caution{
     color: yellow;
 }
@@ -120,6 +124,7 @@ table th {
 table {
     display: inline-block;
     border-collapse: collapse;
+    margin: 25px;
 }
 
 .course_title {
