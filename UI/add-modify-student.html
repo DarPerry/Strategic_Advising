@@ -19,108 +19,30 @@
 
         $(document).ready(function() {
             document.getElementById("form").reset();
-            
+
             //            window.alert(sessionStorage.getItem("studentInformation"));
             //            window.alert("New Student Mode: " + sessionStorage.getItem("newStudentMode"));
 
 
 
             $("#generateButton").click(function() {
+                var rawData = "";
+                //read file
+                $.ajax({
+                    url: "../students/" + sessionStorage.getItem("newStudentId") + ".sa",
+                    success: function(data) {
+                        rawData = data;
+                        sessionStorage.setItem("studentInformation", rawData);
+                    },
+                    async: false
+                });
                 window.location.href = "output.html";
                 return false
-                //                $.ajax({
-                //                    url: "../course_plans/computerScience.cpl",
-                //                    success: function(data) {
-                //                        //                        var coursesTaken = new Array();
-                //                        var coursesTaken = "MATH111;"
-                //                        var catalogArray = new Array();
-                //                        var semester = new Array();
-                //                        var studentSchedule = new Array();
-                //                        var coursePlan = JSON.parse(data);
-                //                        var maxCredits = 15;
-                //
-                //
-                //                        var semseterCreditLoad = 0;
-                //                        coursePlan.forEach(function(course) {
-                //                            catalogArray.push({
-                //                                "number": course.number,
-                //                                "credits": course.credits,
-                //                                "name": course.name,
-                //                                "prereqs": course.prereqs,
-                //                                "parallels": course.parallels
-                //                            })
-                //                        });
-                //
-                //                        for (var i = 0; i < catalogArray.length; i++) {
-                //                            semseterCreditLoad += parseInt(catalogArray[i].credits);
-                //                            if (semseterCreditLoad <= maxCredits && coursesTaken.includes(catalogArray[i].prereqs)) {
-                //                                // and if preqreqs are in course take
-                //                                coursesTaken.push(catalogArray[i].number)
-                //                                semester.push(catalogArray[i].number);
-                //                                // and remove this course from array
-                //
-                //
-                //                            }
-                //                        }
-                //                        alert(semester)
-                //
-                //
-                //                    }
-                //                })
-                //                return false;
-                //                var arr = new Array();
-                //                var studentSchedule = new Array();
-                //                var maxCredits = 15;
-                //                var total = 0;
-                //                var semesterCourses = new Array();
-                //                var output = new Array();
-                //
-                //                //-----------------------------------------------***=-----------------------------
-                //                $.ajax({
-                //                    url: "../course_plans/computerScience.cpl",
-                //                    success: function(data) {
-                //                        var coursePlan = JSON.parse(data);
-                //                        coursePlan.courses.forEach(function(course) {
-                //                            studentSchedule.push({
-                //                                title: course.course_title,
-                //                                credits: course.credits
-                //                            });
-                //                            //                                    if (course.course_title == "CS120") {
-                //                            //                                        //Delete it
-                //                            //                                    }
-                //                        });
-                //
-                //                        for (var i = 0; i < studentSchedule.length; i++) {
-                //                            total += parseInt(studentSchedule[i].credits);
-                //                            if (total <= maxCredits) {
-                //                                semesterCourses.push(studentSchedule[i].title);
-                //                            } else if (total > maxCredits) {
-                //                                output.push(
-                //                                    semesterCourses
-                //                                );
-                //                                // move on to next semester
-                //                                semesterCourses = new Array();
-                //                                total = 0;
-                //                            }
-                //
-                //                        };
-                //                        output.push(semesterCourses);
-                //                        sessionStorage.setItem("fall1", output[0]);
-                //                        sessionStorage.setItem("spring1", output[1]);
-                //                        sessionStorage.setItem("fall2", output[2]);
-                //                        sessionStorage.setItem("spring2", output[3]);
-                //                        sessionStorage.setItem("fall3", output[4]);
-                //                        sessionStorage.setItem("spring3", output[5]);
-                //                        sessionStorage.setItem("fall4", output[6]);
-                //                        sessionStorage.setItem("spring4", output[7]);
-                //
-                //                        window.location.href = "output.html";
-                //
-                //                    }
-                //
-                //                });
-                //                return false;
-            });
+            })
+            //set session storafe
+
+
+
 
 
 
@@ -186,7 +108,46 @@
                     courses_taken.shift();
                     courses_taken.sort();
 
+
                     //TODO fix below by adding schedule
+
+                    var studentSchedule = new Array();
+                    var studentObject = sessionStorage.getItem("studentInformation");
+                    var studentInfo = JSON.parse(studentObject);
+                    var semester = new Array();
+                    var year = new Array();
+
+                    studentInfo.schedule.forEach(function(thisSemester) {
+                        thisSemester.year.forEach(function(a) {
+                            a.forEach(function(course) {
+                                semester.push('"' + course + '"')
+                            })
+
+                            year.push("[" + semester + "]");
+                            semester = new Array();
+                        })
+                        studentSchedule.push(' {"year": [' + year + ']}');
+                        year = new Array()
+                    })
+
+
+                    //                    
+                    //                    $(".yearPlan").each(function() {
+                    //                    $(this).find("table").each(function(e) {
+                    //                        $(this).find(".number").each(function(f) {
+                    //                            semester.push('"' + $(this).html() + '"');
+                    //                        })
+                    //                        year.push("[" + semester + "]");
+                    //                        semester = new Array()
+                    //
+                    //                    })
+                    //                    studentSchedule.push(' {"year": [' + year + ']}');
+                    //                    year = new Array()
+                    //                })
+
+
+                    alert(studentSchedule)
+
                     var student =
                         '{"student_name": "' + $("#student-name").val() +
                         '", "student_email": "' + $("#student-email").val() +
@@ -194,13 +155,13 @@
                         ', "expected_graduation": "' + $("#expected-graduation").val() +
                         '", "major": "' + $(".major:checked").val() +
                         '", "concentration": "' + $(".concentration:checked").val() +
-                        '", "courses_taken": [' + courses_taken.toString() +
+                        '", "courses_taken": [' + courses_taken +
                         '],  "summer_classes": "' + GetCheckboxValue($('#summer-classes')) +
                         '", "early_graduation": "' + GetCheckboxValue($('#early-graduation')) +
                         '", "honors_college": "' + GetCheckboxValue($('#honors-student')) +
                         '", "min_credits": ' + $("#min-credits").val() +
                         ', "max_credits":  ' + $('#max-credits').val() +
-                        ', "schedule": []  }';
+                        ', "schedule": [' + studentSchedule + ']  }';
 
 
                     $.post('modifyStudent.php', {
@@ -221,24 +182,24 @@
             $("#add-button").click(function() {
                 //Don't add if already exists
                 //TODO fille course data
-                
-                
+
+
                 if ($("#course-name").val() != '' && $("#course-number").val() != '') {
                     $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td><td id ='ctitle'>N/A</td></tr>");
                 }
-                
+
                 $.ajax({
                     url: "../course_plans/computerScience.cpl",
                     success: function(data) {
                         var parsedData = JSON.parse(data);
-                        parsedData.forEach(function(courseInCatalog){
-                            if ($("#course-name").last().val().toUpperCase() + $("#course-number").val() == courseInCatalog.number){
-                                $(".row").last().find("#ctitle").html(courseInCatalog.name)                               
+                        parsedData.forEach(function(courseInCatalog) {
+                            if ($("#course-name").last().val().toUpperCase() + $("#course-number").val() == courseInCatalog.number) {
+                                $(".row").last().find("#ctitle").html(courseInCatalog.name)
                             }
-                        })                        
+                        })
                     }
                 });
-                        
+
                 return false;
             });
 

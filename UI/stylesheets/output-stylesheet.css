@@ -8,6 +8,14 @@ img:hover{
     cursor: pointer;
 }
 
+img {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
 .caution{
     color: yellow;
 }
@@ -43,13 +51,7 @@ tbody tr:hover{
     z-index: 1;
 }
 
-img {
-    height: 40px;
-    width: 40px;
-    border: 1px solid black;
-    margin: 10px;
-    padding: 10px;
-}
+
 
 tr {
     height: 25px;
