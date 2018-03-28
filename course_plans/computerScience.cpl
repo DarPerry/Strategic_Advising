@@ -90,5 +90,12 @@
         "name": "Software Engineering 2",
         "prereqs": ["CS495"],
         "parallels": [""]
+    },
+    {
+        "number": "CS200",
+        "credits": "3",
+        "name": "Computers and Society",
+        "prereqs": [],
+        "parallels": [""]
     }
     ]
