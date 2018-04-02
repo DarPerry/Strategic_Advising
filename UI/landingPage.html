@@ -6,25 +6,28 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../ui/stylesheets/landing-stylesheet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-       <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <script>
         $(document).ready(function() {
+
+            sessionStorage.setItem("newStudentMode", "true");
+
             $("#add-student").click(function() {
-                sessionStorage.setItem("newStudentMode", "true");
                 window.location.href = "add-modify-student.html";
             });
 
             $("#search-student").click(function() {
-                sessionStorage.setItem("newStudentMode", "true");
                 window.location.href = "search-page.html";
             });
 
         });
 
     </script>
+
 </head>
 
 <body>
+    
     <div id="header">
         <p>Strategic Advising</p>
     </div>

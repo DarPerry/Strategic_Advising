@@ -9,6 +9,19 @@
     <meta charset="utf-8" />
 
     <script>
+        function SaveStudentInformation(dataToSave, fileName) {
+            $.post('modifyStudent.php', {
+                    student_info: dataToSave,
+                    student_id: fileName
+                },
+                function(data) {
+                    sessionStorage.setItem("studentInformation", dataToSave)
+                    window.alert("Your new information has been saved.");
+                });
+            sessionStorage.setItem("newStudentMode", "true");
+            return false;
+        }
+
         function GetCheckboxValue(checkbox) {
             if ($(checkbox).is(':checked')) {
                 return "true";
@@ -17,38 +30,77 @@
             }
         }
 
-        $(document).ready(function() {
-            document.getElementById("form").reset();
+        function GetStudentEmail() {
+            var studentEmail = $("#student-email").val();
+            if (studentEmail.substr(-8) != "@bsu.edu") {
+                studentEmail += "@bsu.edu"
+            }
+            return studentEmail;
+        }
 
-            //            window.alert(sessionStorage.getItem("studentInformation"));
-            //            window.alert("New Student Mode: " + sessionStorage.getItem("newStudentMode"));
+        function GetCoursesTaken() {
+            var courses_taken = new Array();
+            var tr_count = $('.row');
+            var summer_classes_bool;
+            var honors_college_bool;
+            var early_graduation_bool;
+            var course = "";
 
+            tr_count.each(function() {
+                course = $(this).find("#cname").text() + "_" + $(this).find("#cnum").text();
+                courses_taken.push('"' + course + '"');
+            });
 
+            courses_taken.shift();
+            courses_taken.sort();
 
-            $("#generateButton").click(function() {
-                var rawData = "";
-                //read file
-                $.ajax({
-                    url: "../students/" + sessionStorage.getItem("newStudentId") + ".sa",
-                    success: function(data) {
-                        rawData = data;
-                        sessionStorage.setItem("studentInformation", rawData);
-                    },
-                    async: false
-                });
-                window.location.href = "output.html";
-                return false
-            })
-            //set session storafe
+            return courses_taken
+        }
 
+        function GoToPage(pageAddress) {
+            window.location.href = pageAddress;
+        }
 
+        function DeleteTakenCourse() {
+            $(".row").each(function() {
+                if ($("#course-name").val().toUpperCase() + " " + $("#course-number").val() == $(this).find("#cname").html() + " " + $(this).find("#cnum").html()) {
+                    this.remove();
+                }
+            });
+        }
 
+        function AddTakenCourse() {
+            if ($("#course-name").val() != '' && $("#course-number").val() != '') {
+                $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td><td id ='ctitle'>N/A</td></tr>");
+            }
+            $.ajax({
+                url: "../course_plans/computerScience.cpl",
+                success: function(data) {
+                    var parsedData = JSON.parse(data);
+                    parsedData.forEach(function(courseInCatalog) {
+                        if ($("#course-name").last().val().toUpperCase() + $("#course-number").val() == courseInCatalog.number) {
+                            $(".row").last().find("#ctitle").html(courseInCatalog.name)
+                        }
+                    })
+                }
+            });
 
+        }
 
+        function SetStudentData() {
+            var rawData = "";
+            $.ajax({
+                url: "../students/" + sessionStorage.getItem("newStudentId") + ".sa",
+                success: function(data) {
+                    rawData = data;
+                    sessionStorage.setItem("studentInformation", rawData);
+                },
+                async: false
+            });
+            window.location.href = "output.html";
+        }
 
-
-
-
+        function PopulatePageInformation() {
             if (sessionStorage.getItem("newStudentMode") == 'false') {
                 var sessionStudentInformation = sessionStorage.getItem("studentInformation");
                 var studentObject = JSON.parse(sessionStudentInformation);
@@ -62,7 +114,6 @@
                     $("input[name='conc'][value='" + studentObject.concentration + "']").prop('checked', true);
                 }
 
-                //                window.alert(GetCheckboxValue("#early-graduation"));
                 if (studentObject.summer_classes == "true") {
                     $("#summer-classes").prop('checked', true);
                 }
@@ -77,146 +128,111 @@
                 $("#max-credits").val(studentObject.max_credits);
 
                 studentObject.courses_taken.forEach(function(course) {
-                    var splitCourseInfo = course.split("_");
-                    var courseInfoRow = "<tr class='row'><td id='cname'>" + splitCourseInfo[0].toUpperCase() + "</td><td id='cnum'>" + splitCourseInfo[1].toUpperCase() + "</td></tr>";
-                    $('.row').last().after(courseInfoRow);
+                    try {
+                        var splitCourseInfo = course.split("_");
+                        var courseInfoRow = "<tr class='row'><td id='cname'>" + splitCourseInfo[0].toUpperCase() + "</td><td id='cnum'>" + splitCourseInfo[1].toUpperCase() + "</td></tr>";
+                        $('.row').last().after(courseInfoRow);
+                    } catch (e) {
+                        console.log(e)
+                    }
 
                 });
             } else if (sessionStorage.getItem("newStudentMode") == 'true' || !sessionStorage.getItem("newStudentMode") == 'null') {
                 $("#id-number").val(sessionStorage.getItem("newStudentId"))
             }
+        }
+
+        function GetStudentSchedule() {
+            if (sessionStorage.getItem("newStudentMode") == "false") {
 
 
+                var studentObject = sessionStorage.getItem("studentInformation");
+                var studentInfo = JSON.parse(studentObject);
+                var studentSchedule = new Array();
+                var courses_taken = new Array();
+                var semester = new Array();
+                var year = new Array();
 
 
-            //Fix Method
+                studentInfo.schedule.forEach(function(thisSemester) {
+                    thisSemester.year.forEach(function(a) {
+                        a.forEach(function(course) {
+                            semester.push('"' + course + '"')
+                        })
+                        year.push("[" + semester + "]");
+                        semester = new Array();
+                    })
+                    studentSchedule.push(' {"year": [' + year + ']}');
+                    year = new Array()
+                })
+            } else if (sessionStorage.getItem("newStudentMode") == "true") {
+                studentSchedule = "";
+            }
+
+            return studentSchedule;
+        }
+
+        function GetStudentInformation() {
+
+            var student =
+                '{"student_name": "' + $("#student-name").val() +
+                '", "student_email": "' + GetStudentEmail() +
+                '", "id_number" : ' + $("#id-number").val() +
+                ', "expected_graduation": "' + $("#expected-graduation").val() +
+                '", "major": "' + $(".major:checked").val() +
+                '", "concentration": "' + $(".concentration:checked").val() +
+                '", "courses_taken": [' + GetCoursesTaken() +
+                '],  "summer_classes": "' + GetCheckboxValue($('#summer-classes')) +
+                '", "early_graduation": "' + GetCheckboxValue($('#early-graduation')) +
+                '", "honors_college": "' + GetCheckboxValue($('#honors-student')) +
+                '", "min_credits": ' + $("#min-credits").val() +
+                ', "max_credits":  ' + $('#max-credits').val() +
+                ', "schedule": [' + GetStudentSchedule() + ']  }';
+
+            return student
+        }
+
+
+        $(document).ready(function() {
+
+            document.getElementById("form").reset();
+            PopulatePageInformation();
+
             $("#submit-button").click(function() {
 
-                if ($("#student-email").val() != "") {
-                    var courses_taken = new Array();
-                    var tr_count = $('.row');
-                    var summer_classes_bool;
-                    var honors_college_bool;
-                    var early_graduation_bool;
-                    var course = "";
-
-                    tr_count.each(function() {
-                        course = $(this).find("#cname").text() + "_" + $(this).find("#cnum").text();
-                        courses_taken.push('"' + course + '"');
-                    });
-
-                    courses_taken.shift();
-                    courses_taken.sort();
-
-
-                    //TODO fix below by adding schedule
-
-                    var studentSchedule = new Array();
-                    var studentObject = sessionStorage.getItem("studentInformation");
-                    var studentInfo = JSON.parse(studentObject);
-                    var semester = new Array();
-                    var year = new Array();
-
-                    studentInfo.schedule.forEach(function(thisSemester) {
-                        thisSemester.year.forEach(function(a) {
-                            a.forEach(function(course) {
-                                semester.push('"' + course + '"')
-                            })
-
-                            year.push("[" + semester + "]");
-                            semester = new Array();
-                        })
-                        studentSchedule.push(' {"year": [' + year + ']}');
-                        year = new Array()
-                    })
-
-
-                    //                    
-                    //                    $(".yearPlan").each(function() {
-                    //                    $(this).find("table").each(function(e) {
-                    //                        $(this).find(".number").each(function(f) {
-                    //                            semester.push('"' + $(this).html() + '"');
-                    //                        })
-                    //                        year.push("[" + semester + "]");
-                    //                        semester = new Array()
-                    //
-                    //                    })
-                    //                    studentSchedule.push(' {"year": [' + year + ']}');
-                    //                    year = new Array()
-                    //                })
-
-
-                    alert(studentSchedule)
-
-                    var student =
-                        '{"student_name": "' + $("#student-name").val() +
-                        '", "student_email": "' + $("#student-email").val() +
-                        '", "id_number" : ' + $("#id-number").val() +
-                        ', "expected_graduation": "' + $("#expected-graduation").val() +
-                        '", "major": "' + $(".major:checked").val() +
-                        '", "concentration": "' + $(".concentration:checked").val() +
-                        '", "courses_taken": [' + courses_taken +
-                        '],  "summer_classes": "' + GetCheckboxValue($('#summer-classes')) +
-                        '", "early_graduation": "' + GetCheckboxValue($('#early-graduation')) +
-                        '", "honors_college": "' + GetCheckboxValue($('#honors-student')) +
-                        '", "min_credits": ' + $("#min-credits").val() +
-                        ', "max_credits":  ' + $('#max-credits').val() +
-                        ', "schedule": [' + studentSchedule + ']  }';
-
-
-                    $.post('modifyStudent.php', {
-                            student_info: student,
-                            student_id: $("#id-number").val()
-                        },
-                        function(data) {
-                            window.alert("Your new information has been saved.");
-                        });
+                if ($("#id_number").val() != "") {
+                    SaveStudentInformation(GetStudentInformation(), $("#id-number").val())
                     sessionStorage.setItem("newStudentMode", "true");
                     return false;
                 } else {
-                    window.alert("ERROR: Student must have and email to be saved.");
+                    window.alert("ERROR: Student must have and ID number to be saved.");
                     return false;
                 }
+
             });
 
+            $("#generateButton").click(function() {
+                SaveStudentInformation(GetStudentInformation(), $("#id-number").val())
+                SetStudentData()
+                return false
+            })
+
             $("#add-button").click(function() {
-                //Don't add if already exists
-                //TODO fille course data
-
-
-                if ($("#course-name").val() != '' && $("#course-number").val() != '') {
-                    $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td><td id ='ctitle'>N/A</td></tr>");
-                }
-
-                $.ajax({
-                    url: "../course_plans/computerScience.cpl",
-                    success: function(data) {
-                        var parsedData = JSON.parse(data);
-                        parsedData.forEach(function(courseInCatalog) {
-                            if ($("#course-name").last().val().toUpperCase() + $("#course-number").val() == courseInCatalog.number) {
-                                $(".row").last().find("#ctitle").html(courseInCatalog.name)
-                            }
-                        })
-                    }
-                });
-
+                AddTakenCourse()
+                SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
                 return false;
             });
 
             $("#delete-button").click(function() {
-                //                window.alert($(".row").length);
-                $(".row").each(function() {
-                    if ($("#course-name").val().toUpperCase() + " " + $("#course-number").val() == $(this).find("#cname").html() + " " + $(this).find("#cnum").html()) {
-                        this.remove();
-                    }
-                });
+                DeleteTakenCourse();
+                SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
                 return false;
             });
 
-            $(".tab").click(function() {
-                window.location.href = "search-page.html";
+            $("#search").click(function() {
+                SaveStudentInformation(GetStudentInformation(), $("#id-number").val())
+                GoToPage("search-page.html")
             });
-
 
         });
 
@@ -227,19 +243,18 @@
 <body>
 
     <div id="header">
-        <div class="tab">Search Student</div>
+        <img src="images/search.png" id="search" />
     </div>
     <div id="left">
         <form id="form">
             <div id="student-info-input">
-                Student Name:
-                <input type=text id="student-name">
-                <br> Student Email:
-                <input type=text id="student-email">
-                <br> Ball State ID Number:
-                <input type=text id="id-number">
-                <br> Expeted Graduation:
-                <input type=text id="expected-graduation">
+                <input type=text id="student-name" placeholder="Student Name">
+                <br>
+                <input type=text id="student-email" placeholder="Student Email">
+                <br>
+                <input type=text id="id-number" placeholder="ID Number">
+                <br>
+                <input type=text id="expected-graduation" placeholder="Expected Graduation">
             </div>
 
             <div id="major-checkboxes">
@@ -261,7 +276,7 @@
                 <br>
                 <input type="radio" name="major" class="major" value="Computer Science"> Computer Science
             </div>
-            <button id="submit-button">Submit</button>
+            <button id="submit-button">Save</button>
 
     </div>
     <div id="right">

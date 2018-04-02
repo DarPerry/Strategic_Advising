@@ -1,0 +1,1 @@
+{"student_name": "Test4", "student_email": "Test4@bsu.edu", "id_number" : 4444, "expected_graduation": "May 2024", "major": "Computer Science", "concentration": "undefined", "courses_taken": [],  "summer_classes": "false", "early_graduation": "false", "honors_college": "false", "min_credits": 12, "max_credits":  18, "schedule": []  }

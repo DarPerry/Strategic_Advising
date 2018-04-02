@@ -71,7 +71,9 @@
                         success: function(data) {
                             $('#txtHint').html(data);
                             sessionStorage.setItem("newStudentId", $('#search-input').val())
+                            sessionStorage.setItem("studentInformation", null);
                             window.location.href = "add-modify-student.html";
+
                         }
                     });
                 }

@@ -19,9 +19,9 @@ img:hover{
 img {
     height: 40px;
     width: 40px;
-    border: 1px solid black;
     margin: 10px;
     padding: 10px;
+    float: left;
 }
 
 html body {

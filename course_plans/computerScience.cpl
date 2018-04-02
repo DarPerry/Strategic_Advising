@@ -14,6 +14,22 @@
         "prereqs": ["CS120"],
         "parallels": []
     },
+    
+    {
+        "number": "CS124",
+        "credits": "3",
+        "name": "Discrete Structures",
+        "prereqs": [],
+        "parallels": []
+    },
+     {
+        "number": "CS200",
+        "credits": "3",
+        "name": "Computers and Society",
+        "prereqs": [],
+        "parallels": [""]
+    },
+    
      {
         "number": "CS222",
         "credits": "3",
@@ -77,6 +93,13 @@
         "prereqs": ["CS224"],
         "parallels": [""]
     },
+    {
+        "number": "CS436",
+        "credits": "3",
+        "name": "Database Design",
+        "prereqs": ["CS222"],
+        "parallels": [""]
+    },
      {
         "number": "CS495",
         "credits": "3",
@@ -92,10 +115,72 @@
         "parallels": [""]
     },
     {
-        "number": "CS200",
+        "number": "ECON221",
         "credits": "3",
-        "name": "Computers and Society",
+        "name": "Business Statistics",
+        "prereqs": ["MATH111", ["MATH132","MATH161","MATH162","MATH165","MATH166"], "ISOM125"],
+        "parallels": [""]
+    },
+    {
+        "number": "ENG103",
+        "credits": "3",
+        "name": "Rhetoric and Writing",
+        "prereqs": [""],
+        "parallels": [""]
+    },  {
+        "number": "ENG104",
+        "credits": "3",
+        "name": "Composing Research",
+        "prereqs": [["ENG103"]],
+        "parallels": [""]
+    },
+     {
+        "number": "MATH161",
+        "credits": "3",
+        "name": "Applied Calculus 1",
+        "prereqs": ["MATH11", "MATH112"],
+        "parallels": [""]
+    },
+     {
+        "number": "MATH162",
+        "credits": "3",
+        "name": "Applied Calculus 2",
+        "prereqs": [["MATH165", "MATH161"]],
+        "parallels": [""]
+    },
+     {
+        "number": "MATH165",
+        "credits": "4",
+        "name": "Calculus 1",
+        "prereqs": ["MATH111", "MATH112"],
+        "parallels": [""]
+    },
+     {
+        "number": "MATH166",
+        "credits": "4",
+        "name": "Calculus 2",
         "prereqs": [],
+        "parallels": ["MATH165"]
+    },
+    {
+        "number": "MATH215",
+        "credits": "4",
+        "name": "Discrete Systems",
+        "prereqs": [["MATH162", "MATH165"]],
+        "parallels": []
+    },
+     {
+        "number": "MATH221",
+        "credits": "3",
+        "name": "Probablity and Statistics",
+        "prereqs": [["MATH162", "MATH165"]],
+        "parallels": [""]
+    },
+     {
+        "number": "MATH321",
+        "credits": "4",
+        "name": "Mathematical Statistics",
+        "prereqs": ["MATH320"],
         "parallels": [""]
     }
     ]
