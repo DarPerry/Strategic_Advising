@@ -1,4 +1,11 @@
  [
+ {
+        "number": "COMM210",
+        "credits": "3",
+        "name": "Fundamentals of Public Communication",
+        "prereqs": [],
+        "parallels": []
+    },
     {
         "number": "CS120",
         "credits": "4",
@@ -38,7 +45,7 @@
         "parallels": ["ENG104", "ENG114"]
     },
      {
-        "number": "CS224",
+        "number": "CS324",
         "credits": "3",
         "name": "Des and Analy of Algorithms",
         "prereqs": ["CS121",["CS124", "MATH215"]],
@@ -58,6 +65,8 @@
         "prereqs": ["CS222"],
         "parallels": [""]
     },
+   
+   
      {
         "number": "CS327",
         "credits": "3",
@@ -135,6 +144,14 @@
         "parallels": [""]
     },
      {
+        "number": "FIN101",
+        "credits": "1",
+        "name": "Personal Finance for Fiscal Wellness ",
+        "prereqs": [],
+        "parallels": [""]
+    },
+    
+     {
         "number": "MATH161",
         "credits": "3",
         "name": "Applied Calculus 1",
@@ -145,7 +162,7 @@
         "number": "MATH162",
         "credits": "3",
         "name": "Applied Calculus 2",
-        "prereqs": [["MATH165", "MATH161"]],
+        "prereqs": ["MATH1"],
         "parallels": [""]
     },
      {
@@ -181,6 +198,13 @@
         "credits": "4",
         "name": "Mathematical Statistics",
         "prereqs": ["MATH320"],
+        "parallels": [""]
+    },
+    {
+        "number": "WPP392",
+        "credits": "0",
+        "name": "Writing Proficiency Exam",
+        "prereqs": [],
         "parallels": [""]
     }
     ]

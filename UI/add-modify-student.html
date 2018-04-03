@@ -10,15 +10,28 @@
 
     <script>
         function SaveStudentInformation(dataToSave, fileName) {
-            $.post('modifyStudent.php', {
+            //            $.post('modifyStudent.php', {
+            //                    student_info: dataToSave,
+            //                    student_id: fileName
+            //                },
+            //                function(data) {
+            //                    sessionStorage.setItem("studentInformation", dataToSave)
+            //                    alert(data)
+            //                });
+            //            return false;
+            $.ajax({
+                type: "POST",
+                url: 'modifyStudent.php',
+                data: {
                     student_info: dataToSave,
                     student_id: fileName
                 },
-                function(data) {
+                async: false,
+                success: function(data) {
                     sessionStorage.setItem("studentInformation", dataToSave)
-                });
-            sessionStorage.setItem("newStudentMode", "true");
-            return false;
+                }
+            })
+
         }
 
         function GetCheckboxValue(checkbox) {
@@ -96,7 +109,6 @@
                 },
                 async: false
             });
-            window.location.href = "output.html";
         }
 
         function PopulatePageInformation() {
@@ -129,7 +141,7 @@
                 studentObject.courses_taken.forEach(function(course) {
                     try {
                         var splitCourseInfo = course.split("_");
-                        var courseInfoRow = "<tr class='row'><td id='cname'>" + splitCourseInfo[0].toUpperCase() + "</td><td id='cnum'>" + splitCourseInfo[1].toUpperCase() + "</td></tr>";
+                        var courseInfoRow = "<tr class='row'><td id='cname'>" + splitCourseInfo[0].toUpperCase() + "</td><td id='cnum'>" + splitCourseInfo[1].toUpperCase() + "</td'><td class='ctitle'></td></tr>";
                         $('.row').last().after(courseInfoRow);
                     } catch (e) {
                         console.log(e)
@@ -141,6 +153,26 @@
             } else {
                 $("#id-number").val(null)
             }
+            
+             $.ajax({
+                url: "../course_plans/computerScience.cpl",
+                success: function(data) {
+                    var catalogData = JSON.parse(data)
+                    $(".row").each(function(a) {
+                        catalogData.forEach(function(x) {
+//                            alert($(".row").eq(a).text() + "===" + x.number )
+                            if ($(".row").eq(a).text() == x.number) {
+                                $(".row").eq(a).find(".ctitle").html(x.name)
+                            } else if ($(".number").eq(a).html() == "CS") {
+                                $(".number").eq(a).parent().find(".ctitle").html("Computer Science Elective")
+                            } else if ($(".number").eq(a).html() == "GEN") {
+                                $(".number").eq(a).parent().find(".ctitle").html("General Elective")
+                            }
+                        })
+
+                    })
+                },
+            });
         }
 
         function GetStudentSchedule() {
@@ -166,7 +198,7 @@
                     studentSchedule.push(' {"year": [' + year + ']}');
                     year = new Array()
                 })
-            } else if (sessionStorage.getItem("newStudentMode") == "true") {
+            } else if (sessionStorage.getItem("newStudentMode") == "true" || sessionStorage.getItem("newStudentMode") == "off") {
                 studentSchedule = "";
             }
 
@@ -198,7 +230,6 @@
             document.getElementById("form").reset();
             PopulatePageInformation();
 
-
             $("#submit-button").click(function() {
                 if ($("#id-number").val() != '') {
                     SaveStudentInformation(GetStudentInformation(), $("#id-number").val())
@@ -214,8 +245,9 @@
             });
 
             $("#generateButton").click(function() {
+                //                SetStudentData()
                 SaveStudentInformation(GetStudentInformation(), $("#id-number").val())
-                SetStudentData()
+                GoToPage("output.html");
                 return false
             })
 
