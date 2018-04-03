@@ -1,6 +1,4 @@
 <?php
-
-
 $fileName = $_REQUEST["id"];
 $fileToSearch = "../students/" . $fileName . ".sa";
     

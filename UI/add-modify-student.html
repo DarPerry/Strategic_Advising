@@ -16,7 +16,6 @@
                 },
                 function(data) {
                     sessionStorage.setItem("studentInformation", dataToSave)
-                    window.alert("Your new information has been saved.");
                 });
             sessionStorage.setItem("newStudentMode", "true");
             return false;
@@ -137,8 +136,10 @@
                     }
 
                 });
-            } else if (sessionStorage.getItem("newStudentMode") == 'true' || !sessionStorage.getItem("newStudentMode") == 'null') {
+            } else if (sessionStorage.getItem("newStudentMode") == 'true') {
                 $("#id-number").val(sessionStorage.getItem("newStudentId"))
+            } else {
+                $("#id-number").val(null)
             }
         }
 
@@ -194,20 +195,21 @@
 
 
         $(document).ready(function() {
-
             document.getElementById("form").reset();
             PopulatePageInformation();
 
-            $("#submit-button").click(function() {
 
-                if ($("#id_number").val() != "") {
+            $("#submit-button").click(function() {
+                if ($("#id-number").val() != '') {
                     SaveStudentInformation(GetStudentInformation(), $("#id-number").val())
-                    sessionStorage.setItem("newStudentMode", "true");
-                    return false;
+                    window.alert("Your new information has been saved.");
+
                 } else {
                     window.alert("ERROR: Student must have and ID number to be saved.");
-                    return false;
                 }
+
+                return false;
+
 
             });
 
