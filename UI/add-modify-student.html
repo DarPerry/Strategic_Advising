@@ -9,6 +9,18 @@
     <meta charset="utf-8" />
 
     <script>
+        function MathScienceMajorConcConfirmed() {
+            if (GetCheckboxValue($("input[name='major'][value='Mathematical Science']")) == "true" && (GetCheckboxValue($("input[name='conc'][value='Math']")) == "true" || GetCheckboxValue($("input[name='conc'][value='Applied Science']")) == "true")) {
+                return true;
+            }
+        }
+
+        function MathTeachingMajorConcConfirmed() {
+            if (GetCheckboxValue($("input[name='major'][value='Mathematical Teaching']")) == "true" && (GetCheckboxValue($("input[name='conc'][value='Middle School']")) == "true" || GetCheckboxValue($("input[name='conc'][value='Secondary School']")) == "true")) {
+                return true;
+            }
+        }
+
         function SaveStudentInformation(dataToSave, fileName) {
             //            $.post('modifyStudent.php', {
             //                    student_info: dataToSave,
@@ -153,14 +165,14 @@
             } else {
                 $("#id-number").val(null)
             }
-            
-             $.ajax({
+
+            $.ajax({
                 url: "../course_plans/computerScience.cpl",
                 success: function(data) {
                     var catalogData = JSON.parse(data)
                     $(".row").each(function(a) {
                         catalogData.forEach(function(x) {
-//                            alert($(".row").eq(a).text() + "===" + x.number )
+                            //                            alert($(".row").eq(a).text() + "===" + x.number )
                             if ($(".row").eq(a).text() == x.number) {
                                 $(".row").eq(a).find(".ctitle").html(x.name)
                             } else if ($(".number").eq(a).html() == "CS") {
@@ -227,6 +239,10 @@
 
 
         $(document).ready(function() {
+            $(".major").change(function() {
+                $(".concentration").prop('checked', false)
+            });
+
             document.getElementById("form").reset();
             PopulatePageInformation();
 
@@ -245,22 +261,45 @@
             });
 
             $("#generateButton").click(function() {
-                //                SetStudentData()
-                SaveStudentInformation(GetStudentInformation(), $("#id-number").val())
-                GoToPage("output.html");
+                if ($("#id-number").val() != '') {
+                    if (MathScienceMajorConcConfirmed() || MathTeachingMajorConcConfirmed()) {
+                        SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
+                        GoToPage("output.html");
+                    } else {
+                        alert("Please select a concentration for student's major")
+                    }
+                } else {
+                    window.alert("ERROR: Student must have and ID number to be saved.");
+                }
+
+
+
+
+
+
                 return false
             })
 
             $("#add-button").click(function() {
-                AddTakenCourse()
-                SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
+                if ($("#id-number").val() != '') {
+
+                    AddTakenCourse()
+                    SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
+                } else {
+                    window.alert("ERROR: Student must have and ID number to be saved.");
+                }
                 return false;
             });
 
             $("#delete-button").click(function() {
-                DeleteTakenCourse();
-                SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
-                return false;
+                if ($("#id-number").val() != '') {
+
+                    DeleteTakenCourse();
+                    SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
+                    return false;
+                } else {
+                    window.alert("ERROR: Student must have and ID number to be saved.");
+                }
             });
 
             $("#search").click(function() {

@@ -45,7 +45,7 @@
         "parallels": ["ENG104", "ENG114"]
     },
      {
-        "number": "CS324",
+        "number": "CS224",
         "credits": "3",
         "name": "Des and Analy of Algorithms",
         "prereqs": ["CS121",["CS124", "MATH215"]],
