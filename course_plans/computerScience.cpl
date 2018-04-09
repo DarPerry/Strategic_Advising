@@ -41,21 +41,21 @@
         "number": "CS222",
         "credits": "3",
         "name": "Advanced Programming",
-        "prereqs": ["CS121",["CS124", "MATH215"]],
+        "prereqs": ["CS121", "SYS"],
         "parallels": ["ENG104", "ENG114"]
     },
      {
         "number": "CS224",
         "credits": "3",
         "name": "Des and Analy of Algorithms",
-        "prereqs": ["CS121",["CS124", "MATH215"]],
+        "prereqs": ["CS121","SYS"],
         "parallels": []
     },
      {
         "number": "CS230",
         "credits": "3",
         "name": "Computer Org and Arch",
-        "prereqs": ["CS121", ["CS124", "MATH215"]],
+        "prereqs": ["CS121", "SYS"],
         "parallels": [""]
     },
      {
@@ -140,7 +140,7 @@
         "number": "ENG104",
         "credits": "3",
         "name": "Composing Research",
-        "prereqs": [["ENG103"]],
+        "prereqs": ["ENG103"],
         "parallels": [""]
     },
      {
@@ -183,14 +183,14 @@
         "number": "MATH215",
         "credits": "4",
         "name": "Discrete Systems",
-        "prereqs": [["MATH162", "MATH165"]],
+        "prereqs": ["MATH2"],
         "parallels": []
     },
      {
         "number": "MATH221",
         "credits": "3",
         "name": "Probablity and Statistics",
-        "prereqs": [["MATH162", "MATH165"]],
+        "prereqs": ["MATH2"],
         "parallels": [""]
     },
      {

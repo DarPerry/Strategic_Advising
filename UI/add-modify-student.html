@@ -16,7 +16,8 @@
         }
 
         function MathTeachingMajorConcConfirmed() {
-            if (GetCheckboxValue($("input[name='major'][value='Mathematical Teaching']")) == "true" && (GetCheckboxValue($("input[name='conc'][value='Middle School']")) == "true" || GetCheckboxValue($("input[name='conc'][value='Secondary School']")) == "true")) {
+            if (GetCheckboxValue($("input[name='major'][value='Mathematics Teaching']")) == "true" && (GetCheckboxValue($("input[name='conc'][value='Middle School']")) == "true" || GetCheckboxValue($("input[name='conc'][value='Secondary School']")) == "true")) {
+
                 return true;
             }
         }
@@ -237,6 +238,13 @@
             return student
         }
 
+        function HasMajorWithNoConc() {
+
+            if (GetCheckboxValue($("input[name='major'][value='Actuarial Mathematics']")) == "true" || GetCheckboxValue($("input[name='major'][value='Mathematical Science']")) == "true" || GetCheckboxValue($("input[name='major'][value='Computer Science']")) == "true") {
+                return true;
+            }
+        }
+
 
         $(document).ready(function() {
             $(".major").change(function() {
@@ -262,7 +270,7 @@
 
             $("#generateButton").click(function() {
                 if ($("#id-number").val() != '') {
-                    if (MathScienceMajorConcConfirmed() || MathTeachingMajorConcConfirmed()) {
+                    if (MathScienceMajorConcConfirmed() || MathTeachingMajorConcConfirmed() || HasMajorWithNoConc()) {
                         SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
                         GoToPage("output.html");
                     } else {
