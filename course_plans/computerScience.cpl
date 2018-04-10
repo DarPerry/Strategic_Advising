@@ -499,10 +499,52 @@
         "prereqs": [""],
         "parallels": [""]
     },
-                                                {
+    {
         "number": "MATH498",
         "credits": "2",
         "name": "Senior Seminar",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+      {
+        "number": "PFW100",
+        "credits": "2",
+        "name": "Physical Conditioning",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+         {
+        "number": "PFW103",
+        "credits": "2",
+        "name": "Walking",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+         {
+        "number": "PFW104",
+        "credits": "2",
+        "name": "Jogging",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+         {
+        "number": "PFW117",
+        "credits": "2",
+        "name": "Water Aerobics",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+         {
+        "number": "PFW148",
+        "credits": "2",
+        "name": "Aerobics",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+         {
+        "number": "PFW217",
+        "credits": "2",
+        "name": "Swimming",
         "prereqs": [""],
         "parallels": [""]
     },
@@ -518,6 +560,48 @@
         "credits": "3",
         "name": "Employee Benefits & Retirement Planning",
         "prereqs": ["RMI270"],
+        "parallels": [""]
+    },
+    {
+        "number": "UCC-T1NS",
+        "credits": "3",
+        "name": "Tier 1 Natual Science",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+        {
+        "number": "UCC-T1FA",
+        "credits": "3",
+        "name": "Tier 1 Fine Arts",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+        {
+        "number": "UCC-T1SS",
+        "credits": "3",
+        "name": "Tier 1 Social Science",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+        {
+        "number": "UCC-T1H",
+        "credits": "3",
+        "name": "Tier 1 Humanities",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+        {
+        "number": "UCC-T2NS",
+        "credits": "3",
+        "name": "Tier 2 Natural Science",
+        "prereqs": [""],
+        "parallels": [""]
+    },
+        {
+        "number": "UCC-T2NNS",
+        "credits": "3",
+        "name": "Tier 2 Non-Natural Science",
+        "prereqs": [""],
         "parallels": [""]
     },
     {

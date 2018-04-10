@@ -73,7 +73,17 @@
 
             tr_count.each(function() {
                 course = $(this).find("#cname").text() + "_" + $(this).find("#cnum").text();
+                if (course == "MATH_161" || course == "MATH_165") {
+                    course = "MATH1";
+                } else if (course == "MATH_162" || course == "MATH_166") {
+                    course = "MATH2"
+                }else if (course == "MATH_215" || course == "CS_124") {
+                    course = "SYS"
+                }else if (course.substr(0,3) == "PFW") {
+                    course = "PFW"
+                }
                 courses_taken.push('"' + course + '"');
+
             });
 
             courses_taken.shift();
