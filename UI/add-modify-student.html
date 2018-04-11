@@ -81,6 +81,10 @@
                     course = "SYS"
                 }else if (course.substr(0,3) == "PFW") {
                     course = "PFW"
+                }else if(course == "MATH_221" || course == "ECON_221"){
+                    course = "STATS"
+                }else if(course == "HONR_296" || course == "HONR_297" || course == "HONR_298"){
+                    course == "HONR-NS"
                 }
                 courses_taken.push('"' + course + '"');
 

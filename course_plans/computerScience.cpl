@@ -234,6 +234,90 @@
         "prereqs": [],
         "parallels": [""]
     },
+       {
+        "number": "HONR100",
+        "credits": "1",
+        "name": "Freshman Seminar",
+        "prereqs": [],
+        "parallels": [""]
+    },
+         {
+        "number": "HONR189",
+        "credits": "3",
+        "name": "Inquiries in Global Studies",
+        "prereqs": [],
+        "parallels": [""]
+    },
+           {
+        "number": "HONR199",
+        "credits": "3",
+        "name": "Inquiries in Contemporary American Civilization",
+        "prereqs": [],
+        "parallels": [""]
+    },
+               {
+        "number": "HONR201",
+        "credits": "3",
+        "name": "Inquiries in the Ancient World",
+        "prereqs": [],
+        "parallels": [""]
+    },
+                 {
+        "number": "HONR202",
+        "credits": "3",
+        "name": "Inquiries in the Middle Ages, Renaissance, Enlightenment",
+        "prereqs": [],
+        "parallels": [""]
+    },
+                     {
+        "number": "HONR203",
+        "credits": "3",
+        "name": "Inquiries in the Nineteenth, Twentieth, and Twenty-first Centuries",
+        "prereqs": ["HONR201"],
+        "parallels": [""]
+    },
+                        {
+        "number": "HONR296",
+        "credits": "3",
+        "name": "Inquiries in the Physical Sciences",
+        "prereqs": [],
+        "parallels": [""]
+    },
+                           {
+        "number": "HONR297",
+        "credits": "3",
+        "name": "Inquiries in the Earth Sciences",
+        "prereqs": [],
+        "parallels": [""]
+    },
+                               {
+        "number": "HONR298",
+        "credits": "3",
+        "name": "Inquiries in the Life Sciences",
+        "prereqs": [],
+        "parallels": [""]
+    },
+                                   {
+        "number": "HONR499",
+        "credits": "3",
+        "name": "Senior Honors Project ",
+        "prereqs": [],
+        "parallels": [""]
+    },
+                                       {
+        "number": "HONR-COL",
+        "credits": "2-3",
+        "name": "Honors Colloquium",
+        "prereqs": [],
+        "parallels": [""]
+    },
+                                         {
+        "number": "HONR-NS",
+        "credits": "3",
+        "name": "Natural Science Honors Course",
+        "prereqs": [],
+        "parallels": [""]
+    },
       {
         "number": "MATH150",
         "credits": "3",
