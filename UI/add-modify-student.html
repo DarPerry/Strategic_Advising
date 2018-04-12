@@ -283,7 +283,7 @@
             });
 
             $("#generateButton").click(function() {
-                if ($("#id-number").val() != '') {
+                if ($("#id-number").val().length == 9) {
                     if (MathScienceMajorConcConfirmed() || MathTeachingMajorConcConfirmed() || HasMajorWithNoConc()) {
                         SaveStudentInformation(GetStudentInformation(), $("#id-number").val());
                         GoToPage("output.html");
@@ -291,7 +291,7 @@
                         alert("Please select a concentration for student's major")
                     }
                 } else {
-                    window.alert("ERROR: Student must have and ID number to be saved.");
+                    window.alert("ERROR: Please enter a valid ID number. \n(9 Digits long)");
                 }
 
 

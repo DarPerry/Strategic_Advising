@@ -1,698 +1,733 @@
  [
- {
-        "number": "COMM210",
-        "credits": "3",
-        "name": "Fundamentals of Public Communication",
-        "prereqs": [],
-        "parallels": []
-    },
-    {
-        "number": "CS120",
-        "credits": "4",
-        "name": "Computer Science 1",
-        "prereqs": [],
-        "parallels": ["MATH111", "MATH112", "MATH132", "MATH136", "MATH161", "MATH165"]
-    },
-    
      {
-        "number": "CS121",
-        "credits": "4",
-        "name": "Computer Science 2",
-        "prereqs": ["CS120"],
-        "parallels": []
-    },
-    
-    {
-        "number": "CS124",
-        "credits": "3",
-        "name": "Discrete Structures",
-        "prereqs": [],
-        "parallels": []
+         "number": "COMM210",
+         "credits": "3",
+         "name": "Fundamentals of Public Communication",
+         "prereqs": [],
+         "parallels": []
     },
      {
-        "number": "CS200",
-        "credits": "3",
-        "name": "Computers and Society",
-        "prereqs": [],
-        "parallels": [""]
+         "number": "CS120",
+         "credits": "4",
+         "name": "Computer Science 1",
+         "prereqs": [],
+         "parallels": ["MATH111", "MATH112", "MATH132", "MATH136", "MATH161", "MATH165"]
     },
-    
+
      {
-        "number": "CS222",
-        "credits": "3",
-        "name": "Advanced Programming",
-        "prereqs": ["CS121", "SYS"],
-        "parallels": ["ENG104", "ENG114"]
+         "number": "CS121",
+         "credits": "4",
+         "name": "Computer Science 2",
+         "prereqs": ["CS120"],
+         "parallels": []
     },
+
      {
-        "number": "CS224",
-        "credits": "3",
-        "name": "Des and Analy of Algorithms",
-        "prereqs": ["CS121","SYS"],
-        "parallels": []
-    },
-     {
-        "number": "CS230",
-        "credits": "3",
-        "name": "Computer Org and Arch",
-        "prereqs": ["CS121", "SYS"],
-        "parallels": [""]
+         "number": "CS124",
+         "credits": "3",
+         "name": "Discrete Structures",
+         "prereqs": [],
+         "parallels": []
     },
      {
-        "number": "CS239",
-        "credits": "1",
-        "name": "Social and Professional Issues",
-        "prereqs": ["CS222"],
-        "parallels": [""]
+         "number": "CS200",
+         "credits": "3",
+         "name": "Computers and Society",
+         "prereqs": [],
+         "parallels": []
     },
-   
-   
+
      {
-        "number": "CS327",
-        "credits": "3",
-        "name": "Dist Proc and Networks",
-        "prereqs": ["CS222"],
-        "parallels": [""]
-    },
-     {
-        "number": "CS335",
-        "credits": "3",
-        "name": "Programming Languages",
-        "prereqs": ["CS222", "CS230"],
-        "parallels": [""]
+         "number": "CS222",
+         "credits": "3",
+         "name": "Advanced Programming",
+         "prereqs": ["CS121", "SYS"],
+         "parallels": ["ENG104", "ENG114"]
     },
      {
-        "number": "CS346",
-        "credits": "3",
-        "name": "Database Design",
-        "prereqs": ["CS222"],
-        "parallels": [""]
+         "number": "CS224",
+         "credits": "3",
+         "name": "Des and Analy of Algorithms",
+         "prereqs": ["CS121", "SYS"],
+         "parallels": []
     },
      {
-        "number": "CS376",
-        "credits": "3",
-        "name": "Operating Systems",
-        "prereqs": ["CS222", "CS230"],
-        "parallels": [""]
+         "number": "CS230",
+         "credits": "3",
+         "name": "Computer Org and Arch",
+         "prereqs": ["CS121", "SYS"],
+         "parallels": []
     },
      {
-        "number": "CS380",
-        "credits": "3",
-        "name": "Theory of Computation 1",
-        "prereqs": ["CS224"],
-        "parallels": [""]
+         "number": "CS239",
+         "credits": "1",
+         "name": "Social and Professional Issues",
+         "prereqs": ["CS222"],
+         "parallels": []
     },
-    {
-        "number": "CS436",
-        "credits": "3",
-        "name": "Database Design",
-        "prereqs": ["CS222"],
-        "parallels": [""]
+
+
+     {
+         "number": "CS327",
+         "credits": "3",
+         "name": "Dist Proc and Networks",
+         "prereqs": ["CS222"],
+         "parallels": []
     },
      {
-        "number": "CS495",
-        "credits": "3",
-        "name": "Software Engineering 1",
-        "prereqs": ["CS222", "COMM210"],
-        "parallels": [""]
+         "number": "CS335",
+         "credits": "3",
+         "name": "Programming Languages",
+         "prereqs": ["CS222", "CS230"],
+         "parallels": []
     },
      {
-        "number": "CS498",
-        "credits": "3",
-        "name": "Software Engineering 2",
-        "prereqs": ["CS495"],
-        "parallels": [""]
-    },
-    {
-        "number": "ECON201",
-        "credits": "3",
-        "name": "Elementary Microeconomics",
-        "prereqs": [],
-        "parallels": [""]
-    },
-    {
-        "number": "ECON202",
-        "credits": "3",
-        "name": "Elementary Macroeconomics",
-        "prereqs": ["ECON201"],
-        "parallels": [""]
-    },
-    {
-        "number": "ECON221",
-        "credits": "3",
-        "name": "Business Statistics",
-        "prereqs": ["MATH111", ["MATH132","MATH161","MATH162","MATH165","MATH166"], "ISOM125"],
-        "parallels": [""]
+         "number": "CS346",
+         "credits": "3",
+         "name": "Database Design",
+         "prereqs": ["CS222"],
+         "parallels": []
     },
      {
-        "number": "EDFO420",
-        "credits": "3",
-        "name": "Social, Historical, and Philosophical Foundations of Education",
-        "prereqs": [""],
-        "parallels": [""]
-    },
-    {
-        "number": "EDJH385",
-        "credits": "3",
-        "name": "Principles of Teaching in the Middle School",
-        "prereqs": [""],
-        "parallels": [""]
+         "number": "CS376",
+         "credits": "3",
+         "name": "Operating Systems",
+         "prereqs": ["CS222", "CS230"],
+         "parallels": []
     },
      {
-        "number": "EDMU205",
-        "credits": "3",
-        "name": "Introduction to Multicultural Education",
-        "prereqs": [""],
-        "parallels": [""]
-    },
-         {
-        "number": "EDPS251",
-        "credits": "3",
-        "name": "Human Growth and Development for Secondary Education",
-        "prereqs": [""],
-        "parallels": [""]
-    },
-         {
-        "number": "EDPS390",
-        "credits": "3",
-        "name": "Educational Psychology",
-        "prereqs": ["EDPS250"],
-        "parallels": [""]
-    },
-           {
-        "number": "EDSE320",
-        "credits": "3",
-        "name": "Reading for Diverse Learners in Secondary Content Classes",
-        "prereqs": [""],
-        "parallels": [""]
-    },
-               {
-        "number": "EDSE380",
-        "credits": "3",
-        "name": "Principles of Teaching in Secondary School",
-        "prereqs": ["EDJH385"],
-        "parallels": [""]
-    },
-                {
-        "number": "EDSE460",
-        "credits": "7",
-        "name": "Student Teaching: Secondary School",
-        "prereqs": [""],
-        "parallels": [""]
-    },
-                {
-        "number": "EDSE465",
-        "credits": "5",
-        "name": "Elective Student Teaching: Secondary, Junior High/Middle, or All-Grade",
-        "prereqs": [""],
-        "parallels": [""]
-    },
-    {
-        "number": "ENG103",
-        "credits": "3",
-        "name": "Rhetoric and Writing",
-        "prereqs": [""],
-        "parallels": [""]
-    },  {
-        "number": "ENG104",
-        "credits": "3",
-        "name": "Composing Research",
-        "prereqs": ["ENG103"],
-        "parallels": [""]
+         "number": "CS380",
+         "credits": "3",
+         "name": "Theory of Computation 1",
+         "prereqs": ["CS224"],
+         "parallels": []
     },
      {
-        "number": "FIN101",
-        "credits": "1",
-        "name": "Personal Finance for Fiscal Wellness ",
-        "prereqs": [],
-        "parallels": [""]
+         "number": "CS436",
+         "credits": "3",
+         "name": "Database Design",
+         "prereqs": ["CS222"],
+         "parallels": []
     },
      {
-        "number": "HIST150",
-        "credits": "3",
-        "name": "The West in the World",
-        "prereqs": [],
-        "parallels": [""]
-    },
-       {
-        "number": "HONR100",
-        "credits": "1",
-        "name": "Freshman Seminar",
-        "prereqs": [],
-        "parallels": [""]
-    },
-         {
-        "number": "HONR189",
-        "credits": "3",
-        "name": "Inquiries in Global Studies",
-        "prereqs": [],
-        "parallels": [""]
-    },
-           {
-        "number": "HONR199",
-        "credits": "3",
-        "name": "Inquiries in Contemporary American Civilization",
-        "prereqs": [],
-        "parallels": [""]
-    },
-               {
-        "number": "HONR201",
-        "credits": "3",
-        "name": "Inquiries in the Ancient World",
-        "prereqs": [],
-        "parallels": [""]
-    },
-                 {
-        "number": "HONR202",
-        "credits": "3",
-        "name": "Inquiries in the Middle Ages, Renaissance, Enlightenment",
-        "prereqs": [],
-        "parallels": [""]
-    },
-                     {
-        "number": "HONR203",
-        "credits": "3",
-        "name": "Inquiries in the Nineteenth, Twentieth, and Twenty-first Centuries",
-        "prereqs": ["HONR201"],
-        "parallels": [""]
-    },
-                        {
-        "number": "HONR296",
-        "credits": "3",
-        "name": "Inquiries in the Physical Sciences",
-        "prereqs": [],
-        "parallels": [""]
-    },
-                           {
-        "number": "HONR297",
-        "credits": "3",
-        "name": "Inquiries in the Earth Sciences",
-        "prereqs": [],
-        "parallels": [""]
-    },
-                               {
-        "number": "HONR298",
-        "credits": "3",
-        "name": "Inquiries in the Life Sciences",
-        "prereqs": [],
-        "parallels": [""]
-    },
-                                   {
-        "number": "HONR499",
-        "credits": "3",
-        "name": "Senior Honors Project ",
-        "prereqs": [],
-        "parallels": [""]
-    },
-                                       {
-        "number": "HONR-COL",
-        "credits": "2-3",
-        "name": "Honors Colloquium",
-        "prereqs": [],
-        "parallels": [""]
-    },
-                                         {
-        "number": "HONR-NS",
-        "credits": "3",
-        "name": "Natural Science Honors Course",
-        "prereqs": [],
-        "parallels": [""]
-    },
-      {
-        "number": "MATH150",
-        "credits": "3",
-        "name": "Introduction to Secondary Mathematics Education",
-        "prereqs": ["MATH165"],
-        "parallels": [""]
+         "number": "CS495",
+         "credits": "3",
+         "name": "Software Engineering 1",
+         "prereqs": ["CS222", "COMM210"],
+         "parallels": []
     },
      {
-        "number": "MATH161",
-        "credits": "3",
-        "name": "Applied Calculus 1",
-        "prereqs": ["MATH11", "MATH112"],
-        "parallels": [""]
+         "number": "CS498",
+         "credits": "3",
+         "name": "Software Engineering 2",
+         "prereqs": ["CS495"],
+         "parallels": []
     },
      {
-        "number": "MATH162",
-        "credits": "3",
-        "name": "Applied Calculus 2",
-        "prereqs": ["MATH1"],
-        "parallels": [""]
+         "number": "ECON201",
+         "credits": "3",
+         "name": "Elementary Microeconomics",
+         "prereqs": [],
+         "parallels": []
     },
      {
-        "number": "MATH165",
-        "credits": "4",
-        "name": "Calculus 1",
-        "prereqs": ["MATH111", "MATH112"],
-        "parallels": [""]
+         "number": "ECON202",
+         "credits": "3",
+         "name": "Elementary Macroeconomics",
+         "prereqs": ["ECON201"],
+         "parallels": []
     },
      {
-        "number": "MATH166",
-        "credits": "4",
-        "name": "Calculus 2",
-        "prereqs": [],
-        "parallels": ["MATH165"]
-    },
-      {
-        "number": "MATH201",
-        "credits": "4",
-        "name": "Number, Operations, and Algebraic Reasoning for the Elementary Teacher",
-        "prereqs": [],
-        "parallels": []
-    },
-          {
-        "number": "MATH202",
-        "credits": "3",
-        "name": "Data Analysis, Geometry, and Measurement for the Elementary Teacher",
-        "prereqs": ["MATH201"],
-        "parallels": []
-    },
-    {
-        "number": "MATH215",
-        "credits": "4",
-        "name": "Discrete Systems",
-        "prereqs": ["MATH2"],
-        "parallels": []
-    },
-        {
-        "number": "MATH217",
-        "credits": "4",
-        "name": "Linear Algebra",
-        "prereqs": ["MATH165"],
-        "parallels": []
+         "number": "ECON221",
+         "credits": "3",
+         "name": "Business Statistics",
+         "prereqs": ["MATH111", ["MATH132", "MATH161", "MATH162", "MATH165", "MATH166"], "ISOM125"],
+         "parallels": []
     },
      {
-        "number": "MATH221",
-        "credits": "3",
-        "name": "Probablity and Statistics",
-        "prereqs": ["MATH2"],
-        "parallels": [""]
-    },
-       {
-        "number": "MATH250",
-        "credits": "3",
-        "name": "Pre-College Mathematics from an Advanced Viewpoint",
-        "prereqs": ["MATH150"],
-        "parallels": [""]
-    },
-    {
-        "number": "MATH251",
-        "credits": "2",
-        "name": "Introduction to Mathematics of Finance",
-        "prereqs": [""],
-        "parallels": [""]
-    },    {
-        "number": "MATH259",
-        "credits": "3",
-        "name": "Introduction to Mathematical Software",
-        "prereqs": ["MATH215"],
-        "parallels": [""]
-    },
-    {
-        "number": "MATH267",
-        "credits": "4",
-        "name": "Calculus 3",
-        "prereqs": ["MATH166"],
-        "parallels": [""]
-    },
-      {
-        "number": "MATH310",
-        "credits": "3",
-        "name": "Topics in Algebra for the Elementary and Middle School Teacher",
-        "prereqs": ["MATH202"],
-        "parallels": [""]
-    },
-          {
-        "number": "MATH311",
-        "credits": "3",
-        "name": "Algebraic Structures",
-        "prereqs": ["MATH215","MATH217"],
-        "parallels": [""]
-    },
-              {
-        "number": "MATH316",
-        "credits": "3",
-        "name": "Topics in Number Theory for the Elementary and Middle School Teacher",
-        "prereqs": ["MATH202"],
-        "parallels": [""]
-    },
-                  {
-        "number": "MATH320",
-        "credits": "4",
-        "name": "Probability",
-        "prereqs": ["MATH166","MATH215"],
-        "parallels": [""]
+         "number": "EDFO420",
+         "credits": "3",
+         "name": "Social, Historical, and Philosophical Foundations of Education",
+         "prereqs": [],
+         "parallels": []
     },
      {
-        "number": "MATH321",
-        "credits": "4",
-        "name": "Mathematical Statistics",
-        "prereqs": ["MATH320"],
-        "parallels": [""]
+         "number": "EDJH385",
+         "credits": "3",
+         "name": "Principles of Teaching in the Middle School",
+         "prereqs": [],
+         "parallels": []
     },
-        {
-        "number": "MATH331",
-        "credits": "3",
-        "name": "Algebraic Structures",
-        "prereqs": ["MATH250"],
-        "parallels": [""]
+     {
+         "number": "EDMU205",
+         "credits": "3",
+         "name": "Introduction to Multicultural Education",
+         "prereqs": [],
+         "parallels": []
     },
-        {
-        "number": "MATH335",
-        "credits": "3",
-        "name": "Mathematical Models",
-        "prereqs": ["MATH166","MATH217"],
-        "parallels": [""]
+     {
+         "number": "EDPS251",
+         "credits": "3",
+         "name": "Human Growth and Development for Secondary Education",
+         "prereqs": [],
+         "parallels": []
     },
-            {
-        "number": "MATH345",
-        "credits": "4",
-        "name": "Survey of Geometries",
-        "prereqs": ["MATH116","MATH215","MATH217"],
-        "parallels": [""]
+     {
+         "number": "EDPS390",
+         "credits": "3",
+         "name": "Educational Psychology",
+         "prereqs": ["EDPS250"],
+         "parallels": []
     },
-                {
-        "number": "MATH351",
-        "credits": "4",
-        "name": "Mathematics of Finance",
-        "prereqs": ["MATH165","MATH251","MATH2166"],
-        "parallels": [""]
+     {
+         "number": "EDSE320",
+         "credits": "3",
+         "name": "Reading for Diverse Learners in Secondary Content Classes",
+         "prereqs": [],
+         "parallels": []
     },
-                    {
-        "number": "MATH360",
-        "credits": "3",
-        "name": "Topics in Geometry for the Elementary and Middle School Teacher",
-        "prereqs": ["MATH202"],
-        "parallels": [""]
+     {
+         "number": "EDSE380",
+         "credits": "3",
+         "name": "Principles of Teaching in Secondary School",
+         "prereqs": ["EDJH385"],
+         "parallels": []
     },
-                        {
-        "number": "MATH362",
-        "credits": "3",
-        "name": "Numerical Analysis 1",
-        "prereqs": ["MATH165","MATH259"],
-        "parallels": [""]
+     {
+         "number": "EDSE460",
+         "credits": "7",
+         "name": "Student Teaching: Secondary School",
+         "prereqs": [],
+         "parallels": []
     },
-                            {
-        "number": "MATH374",
-        "credits": "3",
-        "name": "Differential Equations",
-        "prereqs": ["MATH165"],
-        "parallels": [""]
+     {
+         "number": "EDSE465",
+         "credits": "5",
+         "name": "Elective Student Teaching: Secondary, Junior High/Middle, or All-Grade",
+         "prereqs": [],
+         "parallels": []
     },
-                                {
-        "number": "MATH393",
-        "credits": "3",
-        "name": "Teaching and Learning Mathematics in the Middle School",
-        "prereqs": ["MATH250"],
-        "parallels": [""]
+     {
+         "number": "ENG103",
+         "credits": "3",
+         "name": "Rhetoric and Writing",
+         "prereqs": [],
+         "parallels": []
+    }, {
+         "number": "ENG104",
+         "credits": "3",
+         "name": "Composing Research",
+         "prereqs": ["ENG103"],
+         "parallels": []
     },
-    {
-        "number": "MATH395",
-        "credits": "3",
-        "name": "Teaching and Learning Mathematics in the Secondary School",
-        "prereqs": ["MATH250","MATH311"],
-        "parallels": [""]
+     {
+         "number": "FIN101",
+         "credits": "1",
+         "name": "Personal Finance for Fiscal Wellness ",
+         "prereqs": [],
+         "parallels": []
     },
-        {
-        "number": "MATH411",
-        "credits": "3",
-        "name": "Abstract Algebra 1",
-        "prereqs": ["MATH215","MATH217"],
-        "parallels": [""]
+     {
+         "number": "HIST150",
+         "credits": "3",
+         "name": "The West in the World",
+         "prereqs": [],
+         "parallels": []
     },
-            {
-        "number": "MATH412",
-        "credits": "4",
-        "name": "Abstract Algebra 2",
-        "prereqs": ["MATH411"],
-        "parallels": [""]
+     {
+         "number": "HONR100",
+         "credits": "1",
+         "name": "Freshman Seminar",
+         "prereqs": [],
+         "parallels": []
     },
-                {
-        "number": "MATH452",
-        "credits": "4",
-        "name": "Mathematics of Lie Contingencies 1",
-        "prereqs": ["MATH321","MATH351"],
-        "parallels": [""]
+     {
+         "number": "HONR189",
+         "credits": "3",
+         "name": "Inquiries in Global Studies",
+         "prereqs": [],
+         "parallels": []
     },
-                    {
-        "number": "MATH457",
-        "credits": "4",
-        "name": "Actuarial Models 1",
-        "prereqs": ["MATH327"],
-        "parallels": [""]
+     {
+         "number": "HONR199",
+         "credits": "3",
+         "name": "Inquiries in Contemporary American Civilization",
+         "prereqs": [],
+         "parallels": []
     },
-                        {
-        "number": "MATH458",
-        "credits": "3",
-        "name": "Actuarial Models 2",
-        "prereqs": ["MATH321"],
-        "parallels": [""]
+     {
+         "number": "HONR201",
+         "credits": "3",
+         "name": "Inquiries in the Ancient World",
+         "prereqs": [],
+         "parallels": []
     },
-                            {
-        "number": "MATH460",
-        "credits": "3",
-        "name": "History of Mathematics",
-        "prereqs": ["MATH162"],
-        "parallels": [""]
+     {
+         "number": "HONR202",
+         "credits": "3",
+         "name": "Inquiries in the Middle Ages, Renaissance, Enlightenment",
+         "prereqs": [],
+         "parallels": []
     },
-                                {
-        "number": "MATH470",
-        "credits": "3",
-        "name": "Intermediate Analysis",
-        "prereqs": ["MATH166", "MATH215"],
-        "parallels": [""]
+     {
+         "number": "HONR203",
+         "credits": "3",
+         "name": "Inquiries in the Nineteenth, Twentieth, and Twenty-first Centuries",
+         "prereqs": ["HONR201"],
+         "parallels": []
     },
-                                    {
-        "number": "MATH471",
-        "credits": "4",
-        "name": "Real Analysis 1",
-        "prereqs": ["MATH215", "MATH267"],
-        "parallels": [""]
+     {
+         "number": "HONR296",
+         "credits": "3",
+         "name": "Inquiries in the Physical Sciences",
+         "prereqs": [],
+         "parallels": []
     },
-                                        {
-        "number": "MATH472",
-        "credits": "3",
-        "name": "Real Analysis 2",
-        "prereqs": ["MATH471"],
-        "parallels": [""]
+     {
+         "number": "HONR297",
+         "credits": "3",
+         "name": "Inquiries in the Earth Sciences",
+         "prereqs": [],
+         "parallels": []
     },
-                                            {
-        "number": "MATH496",
-        "credits": "3",
-        "name": "Capstone Course for Mathematics Teaching Majors",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "HONR298",
+         "credits": "3",
+         "name": "Inquiries in the Life Sciences",
+         "prereqs": [],
+         "parallels": []
     },
-    {
-        "number": "MATH498",
-        "credits": "2",
-        "name": "Senior Seminar",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "HONR499",
+         "credits": "3",
+         "name": "Senior Honors Project ",
+         "prereqs": [],
+         "parallels": []
     },
-      {
-        "number": "PFW100",
-        "credits": "2",
-        "name": "Physical Conditioning",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "HONR-COL",
+         "credits": "2-3",
+         "name": "Honors Colloquium",
+         "prereqs": [],
+         "parallels": []
     },
-         {
-        "number": "PFW103",
-        "credits": "2",
-        "name": "Walking",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "HONR-NS",
+         "credits": "3",
+         "name": "Natural Science Honors Course",
+         "prereqs": [],
+         "parallels": []
     },
-         {
-        "number": "PFW104",
-        "credits": "2",
-        "name": "Jogging",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH1",
+         "credits": "3 or 4",
+         "name": "MATH 161 or MATH 165",
+         "prereqs": [],
+         "parallels": []
     },
-         {
-        "number": "PFW117",
-        "credits": "2",
-        "name": "Water Aerobics",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH2",
+         "credits": "3 or 4",
+         "name": "MATH 162 or MATH 166",
+         "prereqs": ["MATH1"],
+         "parallels": []
     },
-         {
-        "number": "PFW148",
-        "credits": "2",
-        "name": "Aerobics",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH150",
+         "credits": "3",
+         "name": "Introduction to Secondary Mathematics Education",
+         "prereqs": ["MATH165"],
+         "parallels": []
     },
-         {
-        "number": "PFW217",
-        "credits": "2",
-        "name": "Swimming",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH161",
+         "credits": "3",
+         "name": "Applied Calculus 1",
+         "prereqs": ["MATH11", "MATH112"],
+         "parallels": []
     },
-      {
-        "number": "RMI270",
-        "credits": "3",
-        "name": "Principles of Risk Management",
-        "prereqs": [],
-        "parallels": [""]
+     {
+         "number": "MATH162",
+         "credits": "3",
+         "name": "Applied Calculus 2",
+         "prereqs": ["MATH1"],
+         "parallels": []
     },
-          {
-        "number": "RMI330",
-        "credits": "3",
-        "name": "Employee Benefits & Retirement Planning",
-        "prereqs": ["RMI270"],
-        "parallels": [""]
+     {
+         "number": "MATH165",
+         "credits": "4",
+         "name": "Calculus 1",
+         "prereqs": ["MATH111", "MATH112"],
+         "parallels": []
     },
-    {
-        "number": "UCC-T1NS",
-        "credits": "3",
-        "name": "Tier 1 Natual Science",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH166",
+         "credits": "4",
+         "name": "Calculus 2",
+         "prereqs": [],
+         "parallels": ["MATH165"]
     },
-        {
-        "number": "UCC-T1FA",
-        "credits": "3",
-        "name": "Tier 1 Fine Arts",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH201",
+         "credits": "4",
+         "name": "Number, Operations, and Algebraic Reasoning for the Elementary Teacher",
+         "prereqs": [],
+         "parallels": []
     },
-        {
-        "number": "UCC-T1SS",
-        "credits": "3",
-        "name": "Tier 1 Social Science",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH202",
+         "credits": "3",
+         "name": "Data Analysis, Geometry, and Measurement for the Elementary Teacher",
+         "prereqs": ["MATH201"],
+         "parallels": []
     },
-        {
-        "number": "UCC-T1H",
-        "credits": "3",
-        "name": "Tier 1 Humanities",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH215",
+         "credits": "4",
+         "name": "Discrete Systems",
+         "prereqs": ["MATH2"],
+         "parallels": []
     },
-        {
-        "number": "UCC-T2NS",
-        "credits": "3",
-        "name": "Tier 2 Natural Science",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH217",
+         "credits": "4",
+         "name": "Linear Algebra",
+         "prereqs": ["MATH165"],
+         "parallels": []
     },
-        {
-        "number": "UCC-T2NNS",
-        "credits": "3",
-        "name": "Tier 2 Non-Natural Science",
-        "prereqs": [""],
-        "parallels": [""]
+     {
+         "number": "MATH221",
+         "credits": "3",
+         "name": "Probablity and Statistics",
+         "prereqs": ["MATH2"],
+         "parallels": []
     },
-    {
-        "number": "WPP392",
-        "credits": "0",
-        "name": "Writing Proficiency Exam",
-        "prereqs": [],
-        "parallels": [""]
+     {
+         "number": "MATH250",
+         "credits": "3",
+         "name": "Pre-College Mathematics from an Advanced Viewpoint",
+         "prereqs": ["MATH150"],
+         "parallels": []
+    },
+     {
+         "number": "MATH251",
+         "credits": "2",
+         "name": "Introduction to Mathematics of Finance",
+         "prereqs": [],
+         "parallels": []
+    }, {
+         "number": "MATH259",
+         "credits": "3",
+         "name": "Introduction to Mathematical Software",
+         "prereqs": ["MATH215"],
+         "parallels": []
+    },
+     {
+         "number": "MATH267",
+         "credits": "4",
+         "name": "Calculus 3",
+         "prereqs": ["MATH166"],
+         "parallels": []
+    },
+     {
+         "number": "MATH310",
+         "credits": "3",
+         "name": "Topics in Algebra for the Elementary and Middle School Teacher",
+         "prereqs": ["MATH202"],
+         "parallels": []
+    },
+     {
+         "number": "MATH311",
+         "credits": "3",
+         "name": "Algebraic Structures",
+         "prereqs": ["MATH215", "MATH217"],
+         "parallels": []
+    },
+     {
+         "number": "MATH316",
+         "credits": "3",
+         "name": "Topics in Number Theory for the Elementary and Middle School Teacher",
+         "prereqs": ["MATH202"],
+         "parallels": []
+    },
+     {
+         "number": "MATH320",
+         "credits": "4",
+         "name": "Probability",
+         "prereqs": ["MATH166", "MATH215"],
+         "parallels": []
+    },
+     {
+         "number": "MATH321",
+         "credits": "4",
+         "name": "Mathematical Statistics",
+         "prereqs": ["MATH320"],
+         "parallels": []
+    },
+     {
+         "number": "MATH331",
+         "credits": "3",
+         "name": "Algebraic Structures",
+         "prereqs": ["MATH250"],
+         "parallels": []
+    },
+     {
+         "number": "MATH335",
+         "credits": "3",
+         "name": "Mathematical Models",
+         "prereqs": ["MATH166", "MATH217"],
+         "parallels": []
+    },
+     {
+         "number": "MATH345",
+         "credits": "4",
+         "name": "Survey of Geometries",
+         "prereqs": ["MATH116", "MATH215", "MATH217"],
+         "parallels": []
+    },
+     {
+         "number": "MATH351",
+         "credits": "4",
+         "name": "Mathematics of Finance",
+         "prereqs": ["MATH165", "MATH251", "MATH2166"],
+         "parallels": []
+    },
+     {
+         "number": "MATH360",
+         "credits": "3",
+         "name": "Topics in Geometry for the Elementary and Middle School Teacher",
+         "prereqs": ["MATH202"],
+         "parallels": []
+    },
+     {
+         "number": "MATH362",
+         "credits": "3",
+         "name": "Numerical Analysis 1",
+         "prereqs": ["MATH165", "MATH259"],
+         "parallels": []
+    },
+     {
+         "number": "MATH374",
+         "credits": "3",
+         "name": "Differential Equations",
+         "prereqs": ["MATH165"],
+         "parallels": []
+    },
+     {
+         "number": "MATH393",
+         "credits": "3",
+         "name": "Teaching and Learning Mathematics in the Middle School",
+         "prereqs": ["MATH250"],
+         "parallels": []
+    },
+     {
+         "number": "MATH395",
+         "credits": "3",
+         "name": "Teaching and Learning Mathematics in the Secondary School",
+         "prereqs": ["MATH250", "MATH311"],
+         "parallels": []
+    },
+     {
+         "number": "MATH411",
+         "credits": "3",
+         "name": "Abstract Algebra 1",
+         "prereqs": ["MATH215", "MATH217"],
+         "parallels": []
+    },
+     {
+         "number": "MATH412",
+         "credits": "4",
+         "name": "Abstract Algebra 2",
+         "prereqs": ["MATH411"],
+         "parallels": []
+    },
+     {
+         "number": "MATH452",
+         "credits": "4",
+         "name": "Mathematics of Lie Contingencies 1",
+         "prereqs": ["MATH321", "MATH351"],
+         "parallels": []
+    },
+     {
+         "number": "MATH457",
+         "credits": "4",
+         "name": "Actuarial Models 1",
+         "prereqs": ["MATH327"],
+         "parallels": []
+    },
+     {
+         "number": "MATH458",
+         "credits": "3",
+         "name": "Actuarial Models 2",
+         "prereqs": ["MATH321"],
+         "parallels": []
+    },
+     {
+         "number": "MATH460",
+         "credits": "3",
+         "name": "History of Mathematics",
+         "prereqs": ["MATH162"],
+         "parallels": []
+    },
+     {
+         "number": "MATH470",
+         "credits": "3",
+         "name": "Intermediate Analysis",
+         "prereqs": ["MATH166", "MATH215"],
+         "parallels": []
+    },
+     {
+         "number": "MATH471",
+         "credits": "4",
+         "name": "Real Analysis 1",
+         "prereqs": ["MATH215", "MATH267"],
+         "parallels": []
+    },
+     {
+         "number": "MATH472",
+         "credits": "3",
+         "name": "Real Analysis 2",
+         "prereqs": ["MATH471"],
+         "parallels": []
+    },
+     {
+         "number": "MATH496",
+         "credits": "3",
+         "name": "Capstone Course for Mathematics Teaching Majors",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "MATH498",
+         "credits": "2",
+         "name": "Senior Seminar",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "PFW",
+         "credits": "2",
+         "name": "Wellness Course",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "PFW100",
+         "credits": "2",
+         "name": "Physical Conditioning",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "PFW103",
+         "credits": "2",
+         "name": "Walking",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "PFW104",
+         "credits": "2",
+         "name": "Jogging",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "PFW117",
+         "credits": "2",
+         "name": "Water Aerobics",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "PFW148",
+         "credits": "2",
+         "name": "Aerobics",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "PFW217",
+         "credits": "2",
+         "name": "Swimming",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "RMI270",
+         "credits": "3",
+         "name": "Principles of Risk Management",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "RMI330",
+         "credits": "3",
+         "name": "Employee Benefits & Retirement Planning",
+         "prereqs": ["RMI270"],
+         "parallels": []
+    },
+     {
+         "number": "STATS",
+         "credits": "3",
+         "name": "MATH 221 or ECON 221",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "SYS",
+         "credits": "3 or 4",
+         "name": "CS 124 or MATH 215",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "UCC-T1NS",
+         "credits": "3",
+         "name": "Tier 1 Natual Science",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "UCC-T1FA",
+         "credits": "3",
+         "name": "Tier 1 Fine Arts",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "UCC-T1SS",
+         "credits": "3",
+         "name": "Tier 1 Social Science",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "UCC-T1H",
+         "credits": "3",
+         "name": "Tier 1 Humanities",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "UCC-T2NS",
+         "credits": "3",
+         "name": "Tier 2 Natural Science",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "UCC-T2NNS",
+         "credits": "3",
+         "name": "Tier 2 Non-Natural Science",
+         "prereqs": [],
+         "parallels": []
+    },
+     {
+         "number": "WPP392",
+         "credits": "0",
+         "name": "Writing Proficiency Exam",
+         "prereqs": [],
+         "parallels": []
     }
     ]
