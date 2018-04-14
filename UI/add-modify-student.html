@@ -64,6 +64,13 @@
         }
 
         function GetCoursesTaken() {
+            var UCC_T1FA = ['AHS_100', 'AHS_101', 'DANC_100', 'MUHI_100', 'MUHI_139', 'MUHI_330', 'MUST_100', 'THEA_100'];
+            var UCC_T1H = ['ANTH_103', 'ANTH_111', 'CC_101', 'CC_105', 'ENG_206', 'ENG_213', 'ENG_220', 'GEOG_121', 'HIST_201', 'HIST_202', 'JOUR_101', 'PHIL_100', 'RELS_160', 'TCOM_100', 'AR_102', 'AR_201', 'AR_202', 'CH_102', 'CH_201', 'CH_202', 'FR_102', 'FR_201', 'FR_202', 'GER_102', 'GER_201', 'GER_202', 'GRK_102', 'GRK_201', 'GRK_202', 'JAPA_102', 'JAPA_201', 'JAPA_202', 'LAT_102', 'LAT_201', 'LAT_202', 'SP_102', 'SP_201', 'SP_202'];
+            var UCC_T1NS = ['ANTH_105', 'ASTR_100', 'ASTR_120', 'BIO_100', 'BIO_111', 'BIO_112', 'CHEM_100', 'CHEM_101', 'CHEM_111', 'GEOG_101', 'GEOL_101', 'HSC_160', 'NREM_101', 'PHYC_100', 'PHYC_110', 'PHYC_120'];
+            var UCC_T1SS = ['ANTH_101', 'CJC_101', 'CJC_102', 'COMM_240', 'COMM_290', 'ECON_116', "ECON_201", 'ECON_247', 'GEOG_150', 'ISOM_125', 'PLAN_100', 'POLS_130', 'POLS_293', 'PSYS_100', 'SOC_100', 'SOC_224', 'SOC_242', 'SOC_260'];
+            var UCC_T2NNS = ['AHS_200', 'AHS_201', 'ANTH_341', 'ANTH_463', 'ARCH_229', 'ART_290', 'ART_291', 'CAP_200', 'CC_201', 'CC_202', 'CC_205', 'CH_334', 'COMM_322', 'DANC_302', 'EDRD_320', 'EDSE_320', 'ENG_214', 'ENG_215', 'ENG_216', 'ENG_217', 'ENG_402', 'ENG_405', 'ENG_490', 'ENG_491', 'ENG_492', 'ENG_493', 'ENG_494', 'ENG_498', 'FR_334', 'FR_335', 'FR_360', 'GER_361', 'HIST_198', 'HIST_310', 'HIST_370', 'HIST_421', 'HIST_461', 'HIST_467', 'HIST_486', 'JAP_334', 'LA_221', 'LA_270', 'MMP_100', 'MUHI_105', 'MUHI_107', 'MUHI_331', 'MUSE_265', 'PHIL_102', 'PHIL_202', 'PHIL_203', 'PHIL_230', 'PHIL_240', 'PHIL_304', 'RELS_201', 'RELS_206', 'RELS_210', 'RELS_250', 'RELS_280', 'RELS_290', 'SP_335', 'TDPT_280', 'TEDU_102', 'TGRA_184', 'TGRA_286', 'THEA_207', 'THEA_235', 'THEA_317', 'TMFG_105'];
+            var UCC_T2NS = ['ANTH_231', 'ANTH_401', 'ANTH_331', 'ASTR_124', 'ASTR_126', 'BIO_102', 'BIO_113', 'BIO_216', 'BIO_220', 'CHEM_112', 'CHEM_200', 'CJC_211', 'CJC_229', 'CJC_332', 'CJC_333', 'CJC_341', 'CJC_350', 'CS_200', 'ECON_202', 'ECON_279', 'ECON_309', 'ECON_310', 'ECON_311', 'ECON_331', 'ECON_348', 'ECON_351', 'EDFO_420', 'EDMU_205', 'EDMU_302', 'EDMU_370', 'EDMU_400', 'EDTE_335', 'FCFC_250', 'GEOG_265', 'GEOG_270', 'GEOL_201', 'GEOL_204', 'GEOL_206', 'HSC_180', 'HSC_261', 'HSC_371', 'NREM_205', 'NREM_211', 'NREM_221', 'PHYC_151', 'PLAN_220', 'POLS_432', 'POLS_433', 'PSYS_324', 'PSYS_325', 'PSYS_424', 'SOC_235', 'SOC_328', 'SOC_333', 'SOC_380', 'SOC_421', 'SOC_425', 'SOCW_325', 'TCMP_400', 'TDPT_406', 'WGS_210', 'WGS_220']
+
             var courses_taken = new Array();
             var tr_count = $('.row');
             var summer_classes_bool;
@@ -72,19 +79,31 @@
             var course = "";
 
             tr_count.each(function() {
-                course = $(this).find("#cname").text() + "_" + $(this).find("#cnum").text();
+                course = $(this).find("#cname").text().trim() + "_" + $(this).find("#cnum").text().trim();
                 if (course == "MATH_161" || course == "MATH_165") {
                     course = "MATH1";
                 } else if (course == "MATH_162" || course == "MATH_166") {
                     course = "MATH2"
-                }else if (course == "MATH_215" || course == "CS_124") {
+                } else if (course == "MATH_215" || course == "CS_124") {
                     course = "SYS"
-                }else if (course.substr(0,3) == "PFW") {
+                } else if (course.substr(0, 3) == "PFW") {
                     course = "PFW"
-                }else if(course == "MATH_221" || course == "ECON_221"){
+                } else if (course == "MATH_221" || course == "ECON_221") {
                     course = "STATS"
-                }else if(course == "HONR_296" || course == "HONR_297" || course == "HONR_298"){
-                    course == "HONR-NS"
+                } else if (course == "HONR_296" || course == "HONR_297" || course == "HONR_298") {
+                    course = "HONR-NS"
+                } else if (UCC_T1FA.includes(course)) {
+                    courses_taken.push('"' + "UCC-T1FA" + '"')
+                } else if (UCC_T1H.includes(course)) {
+                    courses_taken.push('"' + "UCC-T1H" + '"')
+                } else if (UCC_T1NS.includes(course)) {
+                    courses_taken.push('"' + "UCC-T1NS" + '"')
+                } else if (UCC_T1SS.includes(course)) {
+                    courses_taken.push('"' + "UCC-T1SS" + '"')
+                } else if (UCC_T2NNS.includes(course)) {
+                    courses_taken.push('"' + "UCC-T2NNS" + '"')
+                } else if (UCC_T2NS.includes(course)) {
+                    courses_taken.push('"' + "UCC-T2NS" + '"')
                 }
                 courses_taken.push('"' + course + '"');
 
@@ -168,7 +187,7 @@
                 studentObject.courses_taken.forEach(function(course) {
                     try {
                         var splitCourseInfo = course.split("_");
-                        var courseInfoRow = "<tr class='row'><td id='cname'>" + splitCourseInfo[0].toUpperCase() + "</td><td id='cnum'>" + splitCourseInfo[1].toUpperCase() + "</td'><td class='ctitle'></td></tr>";
+                        var courseInfoRow = "<tr class='row'><td id='cname'>" + splitCourseInfo[0].toUpperCase().trim() + "</td><td id='cnum'>" + splitCourseInfo[1].toUpperCase().trim() + "</td'><td class='ctitle'></td></tr>";
                         $('.row').last().after(courseInfoRow);
                     } catch (e) {
                         console.log(e)
@@ -187,7 +206,6 @@
                     var catalogData = JSON.parse(data)
                     $(".row").each(function(a) {
                         catalogData.forEach(function(x) {
-                            //                            alert($(".row").eq(a).text() + "===" + x.number )
                             if ($(".row").eq(a).text() == x.number) {
                                 $(".row").eq(a).find(".ctitle").html(x.name)
                             } else if ($(".number").eq(a).html() == "CS") {
@@ -237,8 +255,8 @@
             var student =
                 '{"student_name": "' + $("#student-name").val() +
                 '", "student_email": "' + GetStudentEmail() +
-                '", "id_number" : ' + $("#id-number").val() +
-                ', "expected_graduation": "' + $("#expected-graduation").val() +
+                '", "id_number" : "' + $("#id-number").val() +
+                '", "expected_graduation": "' + $("#expected-graduation").val() +
                 '", "major": "' + $(".major:checked").val() +
                 '", "concentration": "' + $(".concentration:checked").val() +
                 '", "courses_taken": [' + GetCoursesTaken() +

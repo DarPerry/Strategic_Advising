@@ -200,6 +200,16 @@ img {
     float: left;
 }
 
-img:hover{
+img:hover {
     cursor: pointer;
 }
+
+#generateButton {
+    height: 60px;
+    width: 350px;
+    font-size: 100%;
+}
+button:hover{
+    cursor: pointer;
+}
+
