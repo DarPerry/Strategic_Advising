@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="vendors/jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="resources/css/output-stylesheet.css">
+    <link rel="shortcut icon" href="resources/images/favicon.ico">
+    <script type="text/javascript" src="resources/js/output.js"></script>
+    <meta charset="UTF-8">
+    <title>Strategic Advising</title>
+</head>
+
+<body>
+
+
+    <div id="header">
+
+        <div class="tab">Search Student</div>
+        <div id="studentInfoHeader">
+            <input type="text" id="nameHeader" class="headerInfo">
+            <input type="text" id="majorHeader" class="headerInfo">
+            <input type="text" id="concHeader" class="headerInfo">
+            <input type="text" id="expectedGradHeader" class="headerInfo">
+            <input type="text" id="minCreditsHeader" class="headerInfo">
+            <input type="text" id="maxCreditsHeader" class="headerInfo">
+            <input type="text" id="honorsHeader" class="headerInfo">
+            <input type="text" id="earlyGradHeader" class="headerInfo">
+            <input type="text" id="runningCreditTotal" class="headerInfo">
+        </div>
+    </div>
+    <div id="edit">
+        <img src="resources/images/add.png" id="add" />
+        <table id="addTable"></table>
+        <img src="resources/images/delete.png" id="delete" />
+        <img src="resources/images/save.png" id="save" />
+        <img src="resources/images/export.png" id="export" onclick="tablesToExcel(['year1', 'year2', 'year3', 'year4'], ['first', 'second', 'third', 'fourth'], 'myfile.xls')" />
+        <img src="resources/images/email.png" id="mail" onclick="emailTo()" />
+        <img src="resources/images/edit.png" id="editIcon" />
+    </div>
+    <div id="container">
+
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Strategic Advising</title>
+    <link type="text/css" rel="stylesheet" href="resources/css/add-modify-stylesheet.css">
+    <link rel="shortcut icon" href="resources/images/favicon.ico">
+    <script src="vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/add-modify-student.js"></script>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+
+    <div id="header">
+        <img src="resources/images/search.png" id="search" />
+    </div>
+    <div id="left">
+        <form id="form">
+            <div id="student-info-input">
+                <input type=text id="student-name" placeholder="Student Name">
+                <br>
+                <input type=text id="student-email" placeholder="Student Email">
+                <br>
+                <input type=text id="id-number" placeholder="ID Number">
+                <br>
+                <input type=text id="expected-graduation" placeholder="Expected Graduation">
+            </div>
+
+            <div id="major-checkboxes">
+                Major
+                <br>
+                <input type="radio" name="major" class="major" value="Actuarial Mathematics"> Actuarial Mathematics
+                <br>
+                <input type="radio" name="major" class="major" value="Mathematical Science"> Mathematical Science
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Math"> Math
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Applied Science"> Applied Science
+                <br>
+                <input type="radio" name="major" class="major" value="Mathematics Teaching"> Mathematics Teaching
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Middle School"> Middle School
+                <br>
+                <input type="radio" name="conc" class="concentration" value="Secondary School"> Secondary School
+                <br>
+                <input type="radio" name="major" class="major" value="Computer Science"> Computer Science
+            </div>
+            <button id="submit-button">Save</button>
+
+    </div>
+    <div id="right">
+        <h3>Courses Taken</h3>
+        <table id="courses-taken">
+            <thead>
+                <tr id="head-row">
+                    <td>Department</td>
+                    <td>Course Number</td>
+                    <td>Course Title</td>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr class="row" style="display:none">
+
+                </tr>
+
+
+            </tbody>
+        </table>
+        <br>
+        <div id="criteria-input">
+            <div id=checkboxes>
+                <input type="checkbox" name="criteria" value="summer-school" id="summer-classes">Summer Classes
+                <input type="checkbox" name="criteria" value="early-grad" id="early-graduation">Early Graduation
+                <input type="checkbox" name="criteria" value="honors-student" id="honors-student">Honors Student
+            </div>
+
+            <div class="credit-range">
+                Minimum Credits/Semester
+                <br>
+                <input type="number" class="tiny-number-input" id="min-credits" value=12>
+                <br> Maximum Credits/Semester
+                <br>
+                <input type="number" class="tiny-number-input" id="max-credits" value=18>
+            </div>
+        </div>
+
+        <div id="add-delete-course">
+            <div class="course-text-input">
+                Course Name: <br>
+                <input type="text" id="course-name" style="text-transform:uppercase">
+            </div>
+            <div class="course-text-input">
+                Course Number:<br>
+                <input type="text" id="course-number">
+            </div>
+            <div id="button-container">
+                <button id="add-button">Add</button>
+                <br>
+                <button id="delete-button">Delete</button>
+
+                <br>
+            </div>
+            <br>
+            <br>
+            <button id=generateButton>See/Generate Schedule</button>
+
+        </div>
+        </form>
+    </div>
+    <div id="footer"></div>
+</body>
+
+</html>
