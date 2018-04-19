@@ -111,7 +111,7 @@
          $('.row').last().after("<tr class='row'><td id='cname'>" + $("#course-name").val().toUpperCase() + "</td><td id='cnum'>" + $("#course-number").val() + "</td><td id ='ctitle'>N/A</td></tr>");
      }
      $.ajax({
-         url: "resources/data/course-catalog.cpl",
+         url: "resources/data/course-catalog.cca",
          success: function (data) {
              var parsedData = JSON.parse(data);
              parsedData.forEach(function (courseInCatalog) {
@@ -180,7 +180,7 @@
      }
 
      $.ajax({
-         url: "resources/data/course-catalog.cpl",
+         url: "resources/data/course-catalog.cca",
          success: function (data) {
              var catalogData = JSON.parse(data)
              $(".row").each(function (a) {
@@ -201,7 +201,6 @@
 
  function GetStudentSchedule() {
      if (sessionStorage.getItem("newStudentMode") == "false") {
-
 
          var studentObject = sessionStorage.getItem("studentInformation");
          var studentInfo = JSON.parse(studentObject);
