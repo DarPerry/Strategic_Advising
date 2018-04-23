@@ -67,14 +67,18 @@
      $("#delete-student").click(function () {
          if (window.confirm("Are you sure you want to delete this Student? \n\n'OK' to continue.")) {
              if ($('#search-input').val() !== '') {
-                 $.ajax('resources/php/deleteStudent.php', {
-                         'email': $("#search-input").val()
+                 $.ajax({
+                     url: "resources/php/deleteStudent.php",
+                     data: {
+                         email: $("#search-input").val()
                      },
-                     function (data) {
+                     sucess: function (data) {
                          $("#txtHint").html(data);
-                     });
+                     }
+                 });
              }
              $("#search-input").val("");
+             $("#txtHint").html("");
          }
      });
 

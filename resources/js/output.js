@@ -64,7 +64,7 @@ function FillHeaderInformation(jsonStudentInfo) {
     (jsonStudentInfo.early_graduation != "false" ? $("#earlyGradHeader").val("Early Graduation") : $("#earlyGradHeader").hide());
     (jsonStudentInfo.concentration != "undefined" ? $("#concHeader").val(jsonStudentInfo.concentration) : $("#concHeader").hide());
 
-    $("input").attr("disabled", true);
+    $("#studentInfoHeader input").attr("disabled", true);
 }
 
 function CheckCreditLimits(studentInfo) {
@@ -430,13 +430,13 @@ $(document).ready(function () {
         if (editIconClickCount % 2 != 0) {
             $(".yearPlan .credits").each(function () {
                 var $tempVal = $(this).html();
-                $(this).html("<td><input type='text' size = '3' value = '" + $tempVal + "'></td>")
+                $(this).html("<input type='text' size = '3' value = '" + $tempVal + "'>")
             });
 
             $(".yearPlan .number").each(function () {
                 if ($(this).html().includes("-") || electives.includes($(this).html())) {
                     var $tempVal = $(this).siblings().eq(0).html();
-                    $(this).siblings().eq(0).html("<td> <input type='text' size='40' value='" + $tempVal + "'> </td>")
+                    $(this).siblings().eq(0).html("<input type='text' size='40' value='" + $tempVal + "'>")
                 }
             });
 
@@ -446,7 +446,7 @@ $(document).ready(function () {
 
         } else {
             $("#container").find("input").each(function () {
-                $(this).parent().parent().html($(this).val());
+                $(this).parent().html($(this).val());
             })
             CalculateAndDisplayCreditHours();
             CheckCreditLimits(parsedStudentInformation);
