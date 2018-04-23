@@ -1,0 +1,22 @@
+{
+  "name": "strategic_advising",
+  "version": "1.0.0",
+  "description": "\"# Strategic_Advising\"",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarPerry/Strategic_Advising.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarPerry/Strategic_Advising/issues"
+  },
+  "homepage": "https://github.com/DarPerry/Strategic_Advising#readme"
+}
