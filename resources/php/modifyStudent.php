@@ -1,3 +1,16 @@
+<!--
+
+Name :  Delete_Student_PHP
+Author:  Darius Perry
+Created: February 20, 2018
+Review :
+Description: This class is the PHP logic for deleting a student.
+
+-->
+
+
+
+
  <?php
 
 $studentInfo     = $_REQUEST['student_info'];

@@ -1,3 +1,15 @@
+<!--
+
+Name :  Landing_Page_JS
+Author:  Darius Perry
+Created: February 14, 2018
+Review :
+Description: This class is Javascript logic behind the landing page.
+
+-->
+
+
+
 $(document).ready(function () {
 
     $("#add-student").click(function () {
