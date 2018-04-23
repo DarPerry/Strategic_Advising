@@ -1,3 +1,9 @@
+/* Author: Ashlyn King
+Created: 04/19/2018
+Review: Darius Perry, 04/22/2018
+Description: This class prioritizes courses based on prerequisites
+ */
+
 var courses = [];
 
 
