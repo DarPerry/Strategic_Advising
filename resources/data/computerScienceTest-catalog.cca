@@ -1,0 +1,97 @@
+[
+  {
+    "number": "CS120",
+    "credits": "4",
+    "name": "Computer Science 1",
+    "prereqs": [],
+    "parallels": ["MATH111", "MATH112", "MATH132", "MATH136", "MATH161", "MATH165"]
+  },
+
+  {
+    "number": "CS121",
+    "credits": "4",
+    "name": "Computer Science 2",
+    "prereqs": ["CS120"],
+    "parallels": []
+  },
+
+  {
+    "number": "CS124",
+    "credits": "3",
+    "name": "Discrete Structures",
+    "prereqs": [],
+    "parallels": []
+  },
+  {
+    "number": "CS200",
+    "credits": "3",
+    "name": "Computers and Society",
+    "prereqs": [],
+    "parallels": []
+  },
+  {
+    "number": "CS222",
+    "credits": "3",
+    "name": "Advanced Programming",
+    "prereqs": ["CS121", "SYS"],
+    "parallels": ["ENG104", "ENG114"]
+  },
+  {
+    "number": "CS224",
+    "credits": "3",
+    "name": "Des and Analy of Algorithms",
+    "prereqs": ["CS121", "SYS"],
+    "parallels": []
+  },
+  {
+    "number": "CS230",
+    "credits": "3",
+    "name": "Computer Org and Arch",
+    "prereqs": ["CS121", "SYS"],
+    "parallels": []
+  },
+  {
+    "number": "CS239",
+    "credits": "1",
+    "name": "Social and Professional Issues",
+    "prereqs": ["CS222"],
+    "parallels": []
+  },
+
+
+  {
+    "number": "CS327",
+    "credits": "3",
+    "name": "Dist Proc and Networks",
+    "prereqs": ["CS222"],
+    "parallels": []
+  },
+  {
+    "number": "CS335",
+    "credits": "3",
+    "name": "Programming Languages",
+    "prereqs": ["CS222", "CS230"],
+    "parallels": []
+  },
+  {
+    "number": "CS346",
+    "credits": "3",
+    "name": "Database Design",
+    "prereqs": ["CS222"],
+    "parallels": []
+  },
+  {
+    "number": "CS376",
+    "credits": "3",
+    "name": "Operating Systems",
+    "prereqs": ["CS222", "CS230"],
+    "parallels": []
+  },
+  {
+    "number": "CS380",
+    "credits": "3",
+    "name": "Theory of Computation 1",
+    "prereqs": ["CS224"],
+    "parallels": []
+  }
+]
