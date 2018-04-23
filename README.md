@@ -8,8 +8,8 @@ First make sure you have a personal server setup in a software like WAMP or MAMP
 
 ### Prerequisites
 
-A personal server (An application like WAMP or MAMP can help with this)
-A web browser (For example: Chrome Browser)
+* A personal server (An application like WAMP or MAMP can help with this)
+* A web browser (For example: Chrome Browser)
 
 
 ### Installing
