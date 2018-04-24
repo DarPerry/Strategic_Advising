@@ -1,0 +1,22 @@
+{
+  "name": "strategic_advising",
+  "version": "1.0.0",
+  "description": "This software, Strategic Advising, is designed to create an acceptable schedule for mathamatics and computer science students at Ball State University. This schedule is to be made given a course catalog, previously taken courses, and schedule criteria such as credit hours per semester and graduation date. This software is a web application, designed to run on Windows, Linux, and MAC OS. The user must input all criteria mentioned above and a schedule will be outputted. The interface is within a webpage, any browser can be used.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarPerry/Strategic_Advising.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarPerry/Strategic_Advising/issues"
+  },
+  "homepage": "https://github.com/DarPerry/Strategic_Advising#readme"
+}
