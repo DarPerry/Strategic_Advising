@@ -1,14 +1,10 @@
-<!--
-
+/*
 Name :  Add_New_Student_PHP
 Author:  Darius Perry
 Created: February 20, 2018
 Review :
 Description: This class is the php logic for the application.
-
--->
-
-
+*/
 
 <?php
 

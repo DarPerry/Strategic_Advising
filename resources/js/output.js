@@ -1,12 +1,10 @@
-<!--
-
+/*
 Name :  Output_Logic_JS
 Author:  Darius Perry
 Created: February 20, 2018
 Review :
 Description: This class is where all the Javascript code dealing with system outputs are handled.
-
--->
+*/
 
 function ReadTemplate(templateName) {
     var template = "";
