@@ -4,21 +4,15 @@ This software, Strategic Advising, is designed to create an acceptable schedule 
 
 ## Getting Started
 
-First make sure you have a personal server setup in a software like WAMP or MAMP. Then launch our web application with any browser you want and follow the on screen instructions.
+First make sure you have a personal server setup in a software like WAMP or MAMP. Then launch our web application with any browser.
 
 ### Prerequisites
 
-* A personal server (An application like WAMP or MAMP can help with this)
+* A personal server (An application like WAMP, MAMP, or XAMPP can help with this)
 * A web browser (For example: Chrome Browser)
 
-
-### Installing
-
-//Step by step instructions go here.
-
-
 ## Versioning
-This is currently version 1.0.
+This is currently version 1.2.
 
 ## Authors
 
