@@ -1,12 +1,10 @@
-<!--
-
+/*
 Name :  Search_Page_JS
 Author:  Darius Perry
 Created: February 22, 2018
 Review :
 Description: This class is the Javascript logic behind the search student page for the application.
-
--->
+*/
 
  $(document).ready(function () {
 
