@@ -5,7 +5,6 @@ Description: This class prioritizes courses based on prerequisites
  */
 
 var courses = [];
-//courses grouped by priorities
 
 
 //add courses to course dictionary, intializing with prerequisites and priority of 0
@@ -37,7 +36,7 @@ function prioritize(){
     }
 }
 
-function schedule(){
+function orderCourses(){
     var highestPriority = 0;
     var schedule = []
     while(schedule.length != courses.length){
@@ -49,6 +48,12 @@ function schedule(){
         }
         highestPriority ++;
     }
+}
+
+function createSchedule(){
+/* while credits < max
+   --> add courses to schedule
+ */
 }
 
 
