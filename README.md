@@ -11,6 +11,9 @@ First make sure you have a personal server setup in a software like WAMP or MAMP
 * A personal server (An application like WAMP, MAMP, or XAMPP can help with this)
 * A web browser (For example: Chrome Browser)
 
+## Instructions
+Instructions on how to run the project can be found within the repository here: 
+
 ## Versioning
 This is currently version 1.2.
 
