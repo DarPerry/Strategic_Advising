@@ -12,7 +12,7 @@ First make sure you have a personal server setup in a software like WAMP or MAMP
 * A web browser (For example: Chrome Browser)
 
 ## Instructions
-Instructions on how to run the project can be found within the repository here: 
+Instructions on how to run the project can be found within the repository within the User / System Administration Manual. 
 
 ## Versioning
 This is currently version 1.2.
