@@ -1,3 +1,11 @@
+/*
+Name :  Student_Modifier_JS
+Author:  Darius Perry
+Created: February 22, 2018
+Review :
+Description: This class handles javascript side of a student and editing a student.
+*/
+
  function MathScienceMajorConcConfirmed() {
      if (GetCheckboxValue($("input[name='major'][value='Mathematical Science']")) == "true" && (GetCheckboxValue($("input[name='conc'][value='Math']")) == "true" || GetCheckboxValue($("input[name='conc'][value='Applied Science']")) == "true")) {
          return true;
