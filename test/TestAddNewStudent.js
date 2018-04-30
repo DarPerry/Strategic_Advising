@@ -12,7 +12,7 @@ const earlyGraduation = 'false';
 const honorsStatus = 'false';
 const minCreditLoad = 12;
 const maxCreditLoad = 15;
-var studentJSON = JSON.parse(fs.readFileSync('./resources/data/students/' + studentID + '.sa', 'utf-8'));
+const studentJSON = JSON.parse(fs.readFileSync('./resources/data/students/' + studentID + '.sa', 'utf-8'));
 
 describe('AddNewStudent', function() {
     describe('NewStudentFile', function() {

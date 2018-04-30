@@ -1,7 +1,7 @@
 // Enter "npm test" into the terminal to run tests.
 // These tests are being skipped until the algorithm is working.
 
-var assert = require('assert');
+const assert = require('assert');
 
 describe.skip('SchedulingAlgorithm', function() {
     describe('TopologicalSort', function() {
