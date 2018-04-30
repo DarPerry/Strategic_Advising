@@ -1,3 +1,4 @@
+<?php
 /*
 Name :  Delete_Student_PHP
 Author:  Darius Perry
@@ -6,7 +7,6 @@ Review :
 Description: This class is the PHP logic for deleting a student.
 */
 
-<?php
 $fileName = $_REQUEST["email"];
 $fileToSearch = "../data/students/" . $fileName . ".sa";
     

@@ -1,3 +1,4 @@
+<?php
 /*
 Name :  Delete_Student_PHP
 Author:  Darius Perry
@@ -5,8 +6,6 @@ Created: February 20, 2018
 Review :
 Description: This class is the PHP logic for deleting a student.
 */
-
- <?php
 
 $studentInfo     = $_REQUEST['student_info'];
 $studentId    = $_REQUEST['student_id'];
@@ -21,4 +20,4 @@ if (file_exists("../data/students/" . $studentId . ".sa")) {
     fwrite($fp, $studentInfo);
     echo "newStudent";
 }
-?> 
+?>
