@@ -4,7 +4,7 @@ const fs = require('fs');
 const assert = require('assert');
 const studentName = 'John Smith';
 const studentEmail = 'jsmith@bsu.edu';
-const studentID = 999999999;
+const studentID = 123456789;
 const studentGraduation = 'May 2018';
 const studentMajor = 'Computer Science';
 const summerOption = 'false';
@@ -16,34 +16,34 @@ var studentJSON = JSON.parse(fs.readFileSync('./resources/data/students/' + stud
 
 describe('AddNewStudent', function() {
     describe('NewStudentFile', function() {
-        it('should store student name.', function() {
+        it('should contain student name.', function() {
             assert.deepEqual(studentJSON['student_name'], studentName);
         });
-        it('should store student email.', function() {
+        it('should contain student email.', function() {
             assert.deepEqual(studentJSON['student_email'], studentEmail);
         });
-        it('should store student ID.', function() {
+        it('should contain student ID.', function() {
             assert.deepEqual(studentJSON['id_number'], studentID);
         });
-        it('should store expected graduation.', function() {
+        it('should contain expected graduation.', function() {
             assert.deepEqual(studentJSON['expected_graduation'], studentGraduation);
         });
-        it('should store student major.', function() {
+        it('should contain student major.', function() {
             assert.deepEqual(studentJSON['major'], studentMajor);
         });
-        it('should store Summer option.', function() {
+        it('should contain Summer option.', function() {
             assert.deepEqual(studentJSON['summer_classes'], summerOption);
         });
-        it('should store early graduation status.', function() {
+        it('should contain early graduation status.', function() {
             assert.deepEqual(studentJSON['early_graduation'], earlyGraduation);
         });
-        it('should store student honors status.', function() {
+        it('should contain student honors status.', function() {
             assert.deepEqual(studentJSON['honors_college'], honorsStatus);
         });
-        it('should store min credit load.', function() {
+        it('should contain min credit load.', function() {
             assert.deepEqual(studentJSON['min_credits'], minCreditLoad);
         });
-        it('should store max credit load.', function() {
+        it('should contain max credit load.', function() {
             assert.deepEqual(studentJSON['max_credits'], maxCreditLoad);
         });
     });

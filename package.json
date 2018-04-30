@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/DarPerry/Strategic_Advising/issues"
   },
-  "homepage": "https://github.com/DarPerry/Strategic_Advising#readme"
+  "homepage": "https://github.com/DarPerry/Strategic_Advising#readme",
+  "dependencies": {}
 }
