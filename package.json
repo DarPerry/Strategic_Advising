@@ -19,5 +19,7 @@
     "url": "https://github.com/DarPerry/Strategic_Advising/issues"
   },
   "homepage": "https://github.com/DarPerry/Strategic_Advising#readme",
-  "dependencies": {}
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  }
 }
